@@ -1,20 +1,22 @@
 @import "../../sass/main.scss";
 
 .fakeHeader {
-  width: 100%;
-  background-color: white;
   height: 56px;
+  background-color: white;
+}
+
+.background {
+  position: absolute;
+  height: 296px;
+  width: 100%;
+  background-color: var(--background-color-decoration);
+  border-bottom-left-radius: 50%;
 }
 
 .section {
+  position: relative;
   padding-top: 40px;
   padding-bottom: 12px;
-  @include mobile {
-    height: 296px;
-// position: absolute;
-    background-color: var(--background-color-decoration);
-    border-bottom-left-radius: 50%;
-  }
 }
 
 .balanceWrapper {
@@ -34,7 +36,7 @@
 }
 
 .form {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .input {
@@ -47,7 +49,8 @@
   border-right-color: transparent;
   border-top-left-radius: 22px;
   border-bottom-left-radius: 22px;
-outline: none;
+  outline: none;
+
   &::placeholder {
     text-align: right;
     color: var(--title-color);
@@ -59,7 +62,6 @@ outline: none;
   @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
   text-transform: uppercase;
   background-color: transparent;
-
   width: 50%;
   border: 2px solid var(--background-color-main);
   border-top-right-radius: 22px;
@@ -67,14 +69,15 @@ outline: none;
 }
 
 .calendar {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .tableWrapper {
-  height: 162px;
+  margin-top: 20px;
+  // height: 162px;
 }
 
-.linkWrapper{
+.linkWrapper {
   @include mobile {
     position: fixed;
     left: 0;
@@ -91,11 +94,11 @@ outline: none;
   text-transform: uppercase;
   background-color: var(--background-color-decoration);
   width: 50%;
-  &:not(:last-child){
+  &:not(:last-child) {
     margin-right: 3px;
   }
   &:hover {
-background-color: var(--accent-color);
-color: var(--background-color-main)
+    background-color: var(--accent-color);
+    color: var(--background-color-main);
   }
 }

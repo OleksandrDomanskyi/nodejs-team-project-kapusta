@@ -8,7 +8,8 @@ const UserBalanceData = () => {
 
   return (
     <>
-      <div className={s.fakeHeader}></div>
+    <div className={s.fakeHeader}></div>
+      <div className={s.background}>
       <section className={s.section}>
         <div className="container">
           <div className={s.balanceWrapper}>
@@ -22,18 +23,21 @@ const UserBalanceData = () => {
             </form>
             <div className={s.calendar}>calendar</div>
           </div>
-          <div className={s.tableWrapper}></div>
+          <div className={s.tableWrapper}>
+     
+          </div>
           <div className={s.linkWrapper}>
             <Link className={s.link} to="/expenses">
-              <div className={s.tab}>Expenses</div>
+              Expenses
             </Link>
             <Link className={s.link} to="/incomes">
-              <div className={s.tab}>Income</div>
+              Income
             </Link>
           </div>
         </div>
       </section>
-    </>
+      </div>
+      </>
   );
 };
 
