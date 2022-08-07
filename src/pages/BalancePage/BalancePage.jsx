@@ -1,9 +1,12 @@
-import UserBalanceData from "../../components/BalanceData";
+import UserBalanceData from "../../components/UserBalanceData";
+
 
 const BalancePage = () => {
 
     return (
+        <>
         <UserBalanceData/>
+        </>
     );
 }
 
