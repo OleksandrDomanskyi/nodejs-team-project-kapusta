@@ -1,6 +1,6 @@
 import React from "react";
 import s from "./summary.module.scss";
-import testData from "./testData";
+// import testData from "./testData";
 
 const Summary = () => {
   return (
