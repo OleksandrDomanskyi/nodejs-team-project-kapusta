@@ -10,7 +10,7 @@ const Summary = () => {
         {testData.map((item) => (
           <li key={item.monce} className={s.summary__item}>
             <p>{item.monce.toUpperCase()}</p>
-            <p>{item.value}</p>
+            <p>{item.value.toFixed(2)}</p>
           </li>
         ))}
       </ul>
