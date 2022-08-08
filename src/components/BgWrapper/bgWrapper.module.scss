@@ -1,0 +1,9 @@
+@import "../../sass/main.scss";
+
+.background {
+    position: absolute;
+    height: 276px;
+    width: 100%;
+    background-color: var(--background-color-decoration);
+    border-bottom-left-radius: 50%;
+  }

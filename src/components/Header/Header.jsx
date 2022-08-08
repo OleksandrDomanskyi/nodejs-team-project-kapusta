@@ -4,7 +4,7 @@ const Header = () => {
 
     return (
         <header>
-            {/* <NavBarMenu /> */}
+            <NavBarMenu />
         </header>
     );
 };
