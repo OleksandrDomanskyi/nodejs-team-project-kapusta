@@ -21,3 +21,40 @@
         @content;
     }
 }
+
+
+// миксин для удобного добавления стилей для текста
+// например: @include font-style(26px, 900, 1.61, null, $color-white);
+// равносильно: 
+// font-size: 26px;
+// font-weight: 900;
+// line-height: 1.61
+// letter-spacing: null
+// color: $color-white
+@mixin fs(
+  $size: false,
+  $weight: false,
+  $lh: false,
+  $ls: false,
+  $color: false
+) {
+  @if $size {
+    font-size: $size;
+  }
+
+  @if $weight {
+    font-weight: $weight;
+  }
+
+  @if $lh {
+    line-height: $lh;
+  }
+
+  @if $ls {
+    letter-spacing: $ls;
+  }
+
+  @if $color {
+    color: $color;
+  }
+}

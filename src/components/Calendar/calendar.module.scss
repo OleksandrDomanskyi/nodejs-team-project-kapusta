@@ -1,0 +1,15 @@
+@import "../../sass/main.scss";
+
+.calendarWrapper {
+  margin-bottom: 50px;
+  text-align: center
+}
+
+.calendar {
+  @include fs(12px, 900, 1.16, 0.04em, var(--text-color));
+  background: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+}

@@ -9,21 +9,20 @@ const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
 const ReportPage = lazy(() => import("./pages/ReportPage/ReportPage"));
 
 const MyRoutes = () => {
-
-    return (
-        <Suspense>
-            <Routes>
-                <Route element={<PublicRoute />}>
-                    <Route path={"auth"} element={<AuthPage />} />
-                </Route>
-                <Route element={<PrivateRoute />}>
-                    <Route path={"/"} element={<BalancePage />} />
-                    <Route path={"report"} element={<ReportPage />} />
-                </Route>
-                <Route path="*" element={<Navigate to="/" replace />} />
-            </Routes>
-        </Suspense>
-    );
+  return (
+    <Suspense>
+      <Routes>
+        <Route path={"/*"} element={<BalancePage />} />
+        <Route element={<PublicRoute />}>
+          <Route path={"auth"} element={<AuthPage />} />
+        </Route>
+        <Route element={<PrivateRoute />}>
+          <Route path={"report"} element={<ReportPage />} />
+        </Route>
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Suspense>
+  );
 };
 
 export default MyRoutes;

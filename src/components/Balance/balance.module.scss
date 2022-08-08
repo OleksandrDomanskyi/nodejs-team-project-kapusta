@@ -1,0 +1,51 @@
+@import "../../sass/main.scss";
+
+.balanceWrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .report {
+    margin-bottom: 40px;
+    @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+  }
+  
+  .balance {
+    margin-bottom: 12px;
+    @include fs(12px, 500, 1.16, 0.04em, var(--secondary-text-color));
+  }
+  
+  .form {
+    margin-bottom: 50px;
+  }
+  
+  .input {
+    padding: 12px 16px;
+    @include fs(12px, 700, 1.16, 0.02em, var(--secondary-text-color));
+    text-transform: uppercase;
+    width: 50%;
+    background-color: transparent;
+    border: 2px solid var(--background-color-main);
+    border-right-color: transparent;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+    outline: none;
+  
+    &::placeholder {
+      text-align: right;
+      color: var(--title-color);
+    }
+  }
+  
+  .btn {
+    padding: 12px 18px;
+    @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+    text-transform: uppercase;
+    background-color: transparent;
+    width: 50%;
+    border: 2px solid var(--background-color-main);
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+  }
+  
