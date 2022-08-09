@@ -1,5 +1,5 @@
 // import instance from "./auth";
-import axios from "axios";
+// import axios from "axios";
 
 // export const getBalance = async (id) => {
 //   console.log(id);
@@ -18,17 +18,17 @@ import axios from "axios";
 export const getBalance = async (id) => {
   //   console.log(id);
   try {
-    const data1 = {
+    const data = {
       userId: id,
     };
-    const { data } = await axios.get(
-      "https://kapusta-net-app.herokuapp.com/api/balance",
-      {
-        body: {
-          userId: id,
-        },
-      }
-    );
+    // const { data } = await axios.get(
+    //   "https://kapusta-net-app.herokuapp.com/api/balance",
+    //   {
+    //     body: {
+    //       userId: id,
+    //     },
+    //   }
+    // );
     console.log(data);
     return data;
   } catch (error) {
