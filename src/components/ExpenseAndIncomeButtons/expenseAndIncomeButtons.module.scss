@@ -1,29 +1,27 @@
 @import "../../sass/main.scss";
 
-
 .linkWrapper {
-    @include mobile {
-      position: fixed;
-      left: 0;
-      bottom: 0;
-      text-align: center;
-      display: flex;
-      width: 100%;
-    }
+  @include mobile {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    display: flex;
+    width: 100%;
   }
-  
-  .link {
-    padding: 15px 30px;
-    @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
-    text-transform: uppercase;
-    background-color: var(--background-color-decoration);
-    width: 50%;
-    &:not(:last-child) {
-      margin-right: 3px;
-    }
-    &:hover {
-      background-color: var(--accent-color);
-      color: var(--background-color-main);
-    }
+}
+
+.link {
+  padding: 15px 30px;
+  @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
+  text-transform: uppercase;
+  background-color: var(--background-color-decoration);
+  width: 50%;
+  &:not(:last-child) {
+    margin-right: 3px;
   }
-  
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color-main);
+  }
+}

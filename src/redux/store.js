@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import userReducer from "./auth/auth-slice"
+import userReducer from "./auth/auth-slice";
+import balanceReducer from "./balance/balance-slice";
 
 import storage from "redux-persist/lib/storage";
 
@@ -16,8 +17,8 @@ import {
 } from "redux-persist";
 
 const persistConfig = {
-    key: "auth",
-    storage,
+  key: "auth",
+  storage,
 };
 
 const persistedReducer = persistReducer(persistConfig, userReducer);
@@ -25,6 +26,7 @@ const persistedReducer = persistReducer(persistConfig, userReducer);
 export const store = configureStore({
   reducer: {
     user: persistedReducer,
+    balance: balanceReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

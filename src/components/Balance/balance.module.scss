@@ -1,51 +1,100 @@
 @import "../../sass/main.scss";
 
 .balanceWrapper {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @include tablet {
+    flex-direction: row-reverse;
+    align-items: baseline;
+    justify-content: space-between;
   }
-  
-  .report {
-    margin-bottom: 40px;
-    @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+}
+
+.reportsWrapper {
+  // display: flex;
+  // align-items: center;
+  margin-bottom: 40px;
+  @include tablet {
+    margin: 0;
   }
-  
-  .balance {
-    margin-bottom: 12px;
-    @include fs(12px, 500, 1.16, 0.04em, var(--secondary-text-color));
+}
+
+.formWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @include tablet {
+    align-items: baseline;
+    flex-direction: row;
   }
-  
-  .form {
-    margin-bottom: 50px;
+}
+
+.reports {
+  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+}
+
+.balance {
+  margin-bottom: 12px;
+  @include fs(12px, 500, 1.16, 0.04em, var(--secondary-text-color));
+  @include tablet {
+    margin-bottom: 0;
   }
-  
-  .input {
-    padding: 12px 16px;
-    @include fs(12px, 700, 1.16, 0.02em, var(--secondary-text-color));
-    text-transform: uppercase;
-    width: 50%;
-    background-color: transparent;
-    border: 2px solid var(--background-color-main);
-    border-right-color: transparent;
-    border-top-left-radius: 22px;
-    border-bottom-left-radius: 22px;
-    outline: none;
-  
-    &::placeholder {
-      text-align: right;
-      color: var(--title-color);
-    }
+}
+
+.form {
+  position: relative;
+  margin-bottom: 50px;
+  @include tablet {
+    margin-bottom: 0;
   }
-  
-  .btn {
-    padding: 12px 18px;
-    @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
-    text-transform: uppercase;
-    background-color: transparent;
-    width: 50%;
-    border: 2px solid var(--background-color-main);
-    border-top-right-radius: 22px;
-    border-bottom-right-radius: 22px;
+}
+
+.input {
+  padding: 12px 16px;
+  @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
+  text-transform: uppercase;
+  width: 50%;
+  background-color: transparent;
+  border: 2px solid var(--background-color-main);
+  border-right-color: transparent;
+  border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
+  outline: none;
+  text-align: right;
+
+  @include tablet {
+    margin-right: 15px;
+    width: 125px;
+    border-right-color: var(--background-color-main);
+    border-radius: 12px;
   }
-  
+
+  &::placeholder {
+    color: var(--title-color);
+  }
+}
+
+.btn {
+  padding: 12px 18px;
+  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+  text-transform: uppercase;
+  background-color: transparent;
+  width: 50%;
+  border: 2px solid var(--background-color-main);
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+
+  @include tablet {
+    width: 125px;
+    border-radius: 12px;
+  }
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color-main);
+    border: 2px solid var(--accent-color);
+  }
+}
