@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: "https://dashboard.heroku.com/apps/kapusta-net-app/deploy/github"
+    baseURL: "https://kapusta-net-app.herokuapp.com/"
 });
 
 export default instance;
