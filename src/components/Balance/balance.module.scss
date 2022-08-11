@@ -1,10 +1,10 @@
 @import "../../sass/main.scss";
 
 .balanceWrapper {
-  position: relative;
+  padding-bottom: 30px;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
   @include tablet {
     flex-direction: row-reverse;
     align-items: baseline;
@@ -13,16 +13,20 @@
 }
 
 .reportsWrapper {
-  // display: flex;
-  // align-items: center;
+  display: flex;
+  align-items: baseline;
   margin-bottom: 40px;
   @include tablet {
     margin: 0;
   }
 }
 
+.reports {
+  margin-right: 10px;
+  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+}
+
 .formWrapper {
-  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -30,10 +34,6 @@
     align-items: baseline;
     flex-direction: row;
   }
-}
-
-.reports {
-  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
 }
 
 .balance {
@@ -45,7 +45,6 @@
 }
 
 .form {
-  position: relative;
   margin-bottom: 50px;
   @include tablet {
     margin-bottom: 0;
@@ -97,4 +96,21 @@
     color: var(--background-color-main);
     border: 2px solid var(--accent-color);
   }
+}
+
+.mobileCalend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.addBtn {
+  // composes: btn;
+  padding: 7px;
+  border-radius: 12px;
+  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+  text-transform: uppercase;
+  background-color: var(--accent-color);
+  color: var(--background-color-main);
+  border: none;
 }

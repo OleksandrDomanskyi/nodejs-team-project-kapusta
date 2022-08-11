@@ -1,11 +1,12 @@
 @import "../../sass/main.scss";
 
 .calendarWrapper {
-  padding-bottom: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .calendar {
+  width: 85px;
   @include fs(12px, 900, 1.16, 0.04em, var(--text-color));
   background: transparent;
   border: none;

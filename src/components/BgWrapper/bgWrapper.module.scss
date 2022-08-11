@@ -6,6 +6,7 @@
   width: 100%;
   background-color: var(--background-color-decoration);
   border-bottom-left-radius: 50%;
+  z-index: -1;
   @include tablet {
     height: 44%;
   }

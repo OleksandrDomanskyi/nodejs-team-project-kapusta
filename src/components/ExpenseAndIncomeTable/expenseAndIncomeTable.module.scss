@@ -1,44 +1,49 @@
 @import "../../sass/main.scss";
 
 .tableWrapper {
-  margin-top: 20px;
-  max-width: 420px;
+  margin: 20px auto;
+  max-width: 320px;
 }
 
 .table {
   width: 100%;
-  // margin: 0 auto;
+  max-height: 200px;
 }
 
 .thead {
   display: none;
 }
-// .tbody {
-// }
+
+.tbody {
+  height: 200px;
+}
 
 .line {
   position: relative;
   height: 40px;
-  // padding: 5px;
   display: flex;
-  align-items: baseline;
-  justify-content: flex-start;
-
+  // align-items: flex-end;
+  // justify-content: flex-start;
+  border: none;
   border-bottom: 1px solid var(--background-color-decoration);
 }
 
 .date {
-  padding-top: 25px;
   margin-right: 30px;
   flex-basis: 50px;
   @include fs(8px, null, 1.12, 0.04em, var(--text-color));
+
+  @include mobile {
+    display: flex;
+    align-items: flex-end;
+  }
 }
 
 .description {
   flex-basis: 100px;
   @include mobile {
     position: absolute;
-    top: 0;
+    top: 5px;
     left: 0;
     order: -1;
   }
@@ -52,18 +57,30 @@
 .category {
   flex-basis: 50px;
   @include fs(8px, null, 1.12, 0.04em, var(--text-color));
+
+  @include mobile {
+    display: flex;
+    align-items: flex-end;
+  }
 }
 
 .sum {
   margin-right: 10px;
   flex-basis: 200px;
-  display: flex;
-  justify-content: flex-end;
   @include fs(12px, 700, 1.16, 0.04em, var(--text-color));
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }
 
 .delete {
   flex-basis: 30px;
-  display: flex;
-  justify-content: flex-end;
+  @include mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }

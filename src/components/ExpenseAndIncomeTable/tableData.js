@@ -4,7 +4,7 @@ export const data = [
   {
     id: id(),
     date: "11.01.2011",
-    description: "Steak",
+    description: "Beef",
     category: "food",
     sum: "450",
   },
@@ -25,8 +25,8 @@ export const data = [
   {
     id: id(),
     date: "11.01.2011",
-    description: "Steak",
-    category: "food",
+    description: "Borjomi",
+    category: "drinks",
     sum: "450",
   },
   {
@@ -35,12 +35,5 @@ export const data = [
     description: "Salmon",
     category: "food",
     sum: "300",
-  },
-  {
-    id: id(),
-    date: "01.01.2001",
-    description: "Macallan",
-    category: "drinks",
-    sum: "18500",
   },
 ];

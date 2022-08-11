@@ -1,29 +1,22 @@
 import { useState } from "react";
-// import { useSelector, useDispatch, shallowEqual } from "react-redux";
+import { Link } from "react-router-dom";
 import NumberFormat from "react-number-format";
+import { useMediaQuery } from "react-responsive";
 
+import iconsSprite from "../../images/icons.svg";
 import s from "./balance.module.scss";
 
-// import {
-//   getLoading,
-//   getError,
-//   getBalance,
-// } from "../../redux/balance/balance-selectors";
-
-// import * as operations from "../../redux/balance/balance-operations";
-
+import Calendar from "../Calendar";
 import BalanceModal from "./BalanceModal";
+import BalanceFormModal from "./BalanceFormModal";
 
 const Balance = () => {
-  const [balance, setBalance] = useState("");
+  const [balance, setBalance] = useState("1");
+  const [startDate, setStartDate] = useState(new Date());
+  const [modalOpen, setModalOpen] = useState(false);
 
-  // const id = "62f178d4b3a2e2d1123f868a";
-
-  // const value = useSelector(getBalance, shallowEqual);
-  // const loading = useSelector(getLoading, shallowEqual);
-  // const error = useSelector(getError, shallowEqual);
-
-  // const dispatch = useDispatch();
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
+  const handleDateChange = (date) => setStartDate(date);
 
   const handleChange = (e) => {
     setBalance(e.target.value);
@@ -33,39 +26,61 @@ const Balance = () => {
     e.preventDefault();
   };
 
-  // useEffect(() => {
-  //   dispatch(operations.fetchBalance("62f178d4b3a2e2d1123f868aaaaa"));
-  // }, []);
+  const openModal = () => {
+    setModalOpen((prev) => !prev);
+  };
 
   return (
-    <div className={s.balanceWrapper}>
-      <div className={s.reportsWrapper}>
-        <span className={s.reports}>Reports</span>
+    <>
+      {modalOpen && <BalanceFormModal closeModal={openModal} />}
+      <div className={s.balanceWrapper}>
+        {!balance && <BalanceModal />}
+        <Link to="/report" className={s.reportsWrapper}>
+          <span className={s.reports}>Reports</span>
+          <svg
+            className={s.iconReport}
+            aria-label="reports"
+            width="14px"
+            height="14px"
+          >
+            <use href={`${iconsSprite}#icon-reports`}></use>
+          </svg>
+        </Link>
+        <div className={s.formWrapper}>
+          <span className={s.balance}>Balanсe:</span>
+          <form className={s.form} onSubmit={handleSubmit}>
+            <NumberFormat
+              className={s.input}
+              name="balance"
+              type="text"
+              value={balance}
+              onChange={handleChange}
+              thousandSeparator=" "
+              decimalSeparator="."
+              decimalScale={2}
+              fixedDecimalScale={true}
+              suffix=" UAH"
+              placeholder="00.00 UAH"
+              minLength={1}
+            />
+            <button className={s.btn} type="submit">
+              Confirm
+            </button>
+          </form>
+          {isMobile && (
+            <div className={s.mobileCalend}>
+              <Calendar
+                startDate={startDate}
+                onHandleChange={handleDateChange}
+              />
+              <button className={s.addBtn} onClick={openModal}>
+                Add transaction
+              </button>
+            </div>
+          )}
+        </div>
       </div>
-      <div className={s.formWrapper}>
-        <span className={s.balance}>Balanсe:</span>
-        <form className={s.form} onSubmit={handleSubmit}>
-          <NumberFormat
-            className={s.input}
-            name="balance"
-            type="text"
-            value={balance}
-            onChange={handleChange}
-            thousandSeparator=" "
-            decimalSeparator="."
-            decimalScale={2}
-            fixedDecimalScale={true}
-            suffix=" UAH"
-            placeholder="00.00 UAH"
-            minLength={1}
-          />
-          <button className={s.btn} type="submit">
-            Confirm
-          </button>
-          {!balance && <BalanceModal />}
-        </form>
-      </div>
-    </div>
+    </>
   );
 };
 
