@@ -11,18 +11,29 @@ import iconsSprite from "../../images/icons.svg";
 import { options } from "./options";
 import { customStyles } from "./styles";
 
-const ExpenseAndIncomeForm = () => {
-  const [descr, setDescr] = useState("");
+const ExpenseAndIncomeForm = ({ type, closeModal }) => {
   const [startDate, setStartDate] = useState(new Date());
-
-  const handleChange = (e) => {
-    setDescr(e.target.value);
-  };
 
   const handleDateChange = (date) => setStartDate(date);
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    // console.log(e.target.elements);
+    const { description, sum, category } = e.target.elements;
+    const data = {
+      type,
+      day: startDate.getDate(),
+      month: startDate.getMonth() + 1,
+      year: startDate.getFullYear(),
+      description: description.value,
+      category: category.value,
+      sum: sum.value,
+    };
+    // closeModal();
+  };
+
   return (
-    <form className={s.form}>
+    <form className={s.form} onSubmit={onSubmit}>
       <div className={s.inputsWrapper}>
         <div className={s.calendWrapper}>
           <Calendar startDate={startDate} onHandleChange={handleDateChange} />
@@ -30,8 +41,8 @@ const ExpenseAndIncomeForm = () => {
         <label htmlFor="description">
           <input
             className={s.input}
-            value={descr}
-            onChange={handleChange}
+            // value={descr}
+            // onChange={handleChange}
             name="description"
             placeholder="Product description"
             minLength={1}

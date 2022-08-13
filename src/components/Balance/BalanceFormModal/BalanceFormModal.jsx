@@ -8,7 +8,7 @@ import iconsSprite from "../../../images/icons.svg";
 
 const modal = document.getElementById("modal");
 
-const BalanceFormModal = ({ closeModal }) => {
+const BalanceFormModal = ({ transactionType, closeModal }) => {
   return createPortal(
     <div className={s.overlay}>
       <BgWrapper>
@@ -24,7 +24,10 @@ const BalanceFormModal = ({ closeModal }) => {
               <use href={`${iconsSprite}#icon-arrow`}></use>
             </svg>
           </div>
-          <ExpenseAndIncomeForm />
+          <ExpenseAndIncomeForm
+            closeModal={closeModal}
+            type={transactionType}
+          />
         </div>
       </BgWrapper>
     </div>,

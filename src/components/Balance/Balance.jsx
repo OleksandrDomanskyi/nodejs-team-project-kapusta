@@ -12,8 +12,8 @@ import BalanceFormModal from "./BalanceFormModal";
 
 import { setUserBalance } from "../../shared/services/auth";
 
-const Balance = () => {
-  const [balance, setBalance] = useState("");
+const Balance = ({ type }) => {
+  const [balance, setBalance] = useState("1");
   const [startDate, setStartDate] = useState(new Date());
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -39,10 +39,12 @@ const Balance = () => {
     setModalOpen((prev) => !prev);
     document.body.style.overflow = "hidden";
   };
-
+  console.log(type);
   return (
     <>
-      {modalOpen && <BalanceFormModal closeModal={openModal} />}
+      {modalOpen && (
+        <BalanceFormModal closeModal={openModal} transactionType={type} />
+      )}
       <div className={s.balanceWrapper}>
         {!balance && <BalanceModal />}
         <Link to="/report" className={s.reportsWrapper}>

@@ -1,6 +1,6 @@
 @import "../../sass/main.scss";
 
-.linkWrapper {
+.btnWrapper {
   display: flex;
   text-align: center;
   @include mobile {
@@ -18,8 +18,9 @@
   }
 }
 
-.link {
+.btn {
   padding: 15px 30px;
+  border: none;
   @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
   text-transform: uppercase;
   background-color: var(--tablet-btn-color);
@@ -41,3 +42,22 @@
     border-top-right-radius: 22px;
   }
 }
+
+.active {
+  composes: btn;
+  background-color: var(--accent-color);
+  color: var(--background-color-main);
+  @include tablet {
+    background-color: #fefefe;
+    color: var(--accent-color);
+  }
+}
+
+// const Button = ({ type = "button", label, disabled }) => {
+//   const btnClass = disabled ? styles.disabled : styles.active;
+
+//   return (
+//     <button className={btnClass} type={type} disabled={disabled}>
+//       {label}
+//     </button>
+//   );
