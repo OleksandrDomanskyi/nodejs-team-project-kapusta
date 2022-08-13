@@ -57,6 +57,7 @@ const ExpenseAndIncomeTable = () => {
             ))}
         </tbody>
       </table>
+      {/* {children} */}
     </div>
   );
 };

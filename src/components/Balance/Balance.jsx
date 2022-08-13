@@ -28,6 +28,7 @@ const Balance = () => {
 
   const openModal = () => {
     setModalOpen((prev) => !prev);
+    document.body.style.overflow = "hidden";
   };
 
   return (
@@ -49,33 +50,35 @@ const Balance = () => {
         <div className={s.formWrapper}>
           <span className={s.balance}>Balanсe:</span>
           <form className={s.form} onSubmit={handleSubmit}>
-            <NumberFormat
-              className={s.input}
-              name="balance"
-              type="text"
-              value={balance}
-              onChange={handleChange}
-              thousandSeparator=" "
-              decimalSeparator="."
-              decimalScale={2}
-              fixedDecimalScale={true}
-              suffix=" UAH"
-              placeholder="00.00 UAH"
-              minLength={1}
-            />
+            <label htmlFor="balance">
+              <NumberFormat
+                className={s.input}
+                name="balance"
+                type="text"
+                value={balance}
+                onChange={handleChange}
+                thousandSeparator=" "
+                decimalSeparator="."
+                decimalScale={2}
+                fixedDecimalScale={true}
+                suffix=" UAH"
+                placeholder="00.00 UAH"
+                minLength={1}
+              />
+            </label>
             <button className={s.btn} type="submit">
               Confirm
             </button>
           </form>
           {isMobile && (
             <div className={s.mobileCalend}>
+              <button className={s.addBtn} onClick={openModal}>
+                Add transaction
+              </button>
               <Calendar
                 startDate={startDate}
                 onHandleChange={handleDateChange}
               />
-              <button className={s.addBtn} onClick={openModal}>
-                Add transaction
-              </button>
             </div>
           )}
         </div>

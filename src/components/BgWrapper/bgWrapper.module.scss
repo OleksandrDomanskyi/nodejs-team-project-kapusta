@@ -5,10 +5,10 @@
   height: 276px;
   width: 100%;
   background-color: var(--background-color-decoration);
-  border-bottom-left-radius: 50%;
+  border-bottom-left-radius: 40%;
   z-index: -1;
   @include tablet {
-    height: 44%;
+    height: 526px;
   }
   @include desktop {
     height: 66%;

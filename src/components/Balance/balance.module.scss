@@ -1,11 +1,12 @@
 @import "../../sass/main.scss";
 
 .balanceWrapper {
-  padding-bottom: 30px;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   @include tablet {
+    margin-bottom: 100px;
     flex-direction: row-reverse;
     align-items: baseline;
     justify-content: space-between;
@@ -102,11 +103,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
 }
 
 .addBtn {
-  // composes: btn;
-  padding: 7px;
+  padding: 15px;
+  margin-bottom: 20px;
   border-radius: 12px;
   @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
   text-transform: uppercase;

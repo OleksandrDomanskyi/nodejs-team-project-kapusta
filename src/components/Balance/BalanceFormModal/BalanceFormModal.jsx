@@ -13,7 +13,13 @@ const BalanceFormModal = ({ closeModal }) => {
     <div className={s.overlay}>
       <BgWrapper>
         <div className="container">
-          <div className={s.btn} onClick={closeModal}>
+          <div
+            className={s.btn}
+            onClick={() => {
+              closeModal();
+              document.body.style.overflow = "";
+            }}
+          >
             <svg className={s.arrow} width="24px" height="24px">
               <use href={`${iconsSprite}#icon-arrow`}></use>
             </svg>
