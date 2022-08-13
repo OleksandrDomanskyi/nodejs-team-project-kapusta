@@ -1,0 +1,185 @@
+@import "../../sass/main.scss";
+
+.form {
+  @include tablet {
+    margin-bottom: 48px;
+  }
+  @include desktop {
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.inputsWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @include mobile {
+    margin-bottom: 80px;
+  }
+
+  @include tablet {
+    flex-direction: row;
+    margin-bottom: 32px;
+  }
+  @include desktop {
+    margin-bottom: 0;
+  }
+}
+
+.calendWrapper {
+  @include mobile {
+    margin-bottom: 25px;
+  }
+  @include tablet {
+    margin-right: 34px;
+  }
+}
+
+.input {
+  padding: 13px 20px;
+  width: 280px;
+
+  @include fs(12px, null, 1.16, 0.04em, var(--text-color));
+
+  background-color: transparent;
+  border: 2px solid var(--background-color-main);
+  border-top-left-radius: 22px;
+  border-top-right-radius: 22px;
+  outline: none;
+  @include mobile {
+    border-bottom: none;
+  }
+  @include tablet {
+    width: 176px;
+    border-color: var(--background-color-decoration);
+    border-top-right-radius: 0;
+    border-top-left-radius: 16px;
+  }
+  @include desktop {
+    width: 230px;
+  }
+}
+
+.input::placeholder {
+  color: var(--homepage-placeholder-color);
+}
+
+.selectLabel {
+  @include mobile {
+    margin-bottom: 25px;
+  }
+}
+
+.select {
+  width: 280px;
+  border: 2px solid white;
+  @include fs(12px, null, 1.16, 0.04em, var(--text-color));
+  @include tablet {
+    width: 176px;
+    border-color: var(--background-color-decoration);
+    border-right: none;
+    border-left: none;
+  }
+
+  ::-webkit-scrollbar {
+    width: 3px;
+    background: var(--background-color-decoration);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 2px;
+  }
+}
+
+.sumLabel {
+  display: flex;
+  align-items: center;
+}
+
+.sum {
+  padding: 13px 16px;
+  width: 125px;
+  text-align: right;
+  @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 2px solid var(--background-color-main);
+  border-right: none;
+  border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
+  text-align: right;
+  outline: none;
+
+  @include tablet {
+    padding: 13px 5px;
+    padding-left: 5px;
+    width: 85px;
+    font-weight: 400;
+    color: var(--text-color);
+    border-color: var(--background-color-decoration);
+    border-radius: 0;
+    border-right-color: var(--background-color-main);
+  }
+
+  &::placeholder {
+    color: var(--title-color);
+    @include tablet {
+      color: var(--homepage-placeholder-color);
+    }
+  }
+}
+
+.iconSum {
+  fill: #1d2e4a;
+  display: flex;
+  width: 60px;
+  height: 44px;
+  border: 2px solid var(--background-color-main);
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+  @include mobile {
+    padding: 10px 17px;
+  }
+
+  @include tablet {
+    padding: 10px 20px 10px 0;
+    width: 50px;
+
+    fill: #52555f;
+    border-color: var(--background-color-decoration);
+    border-left-color: var(--background-color-main);
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+}
+
+.btnWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.inputBtn {
+  padding: 15px;
+  margin-right: 20px;
+  width: 130px;
+  background-color: var(--accent-color);
+  @include fs(12px, 700, 1.16, 0.02em, var(--background-color-main));
+  border: transparent;
+  border-radius: 16px;
+  box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
+  @include tablet {
+    width: 125px;
+  }
+  @include desktop {
+    margin-right: 16px;
+    width: 136px;
+  }
+}
+
+.clearBtn {
+  composes: inputBtn;
+  color: var(--text-color);
+  background-color: var(--background-color-decoration);
+}

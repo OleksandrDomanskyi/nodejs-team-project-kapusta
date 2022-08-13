@@ -4,8 +4,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
   @include tablet {
+    margin-bottom: 100px;
     flex-direction: row-reverse;
     align-items: baseline;
     justify-content: space-between;
@@ -13,16 +14,20 @@
 }
 
 .reportsWrapper {
-  // display: flex;
-  // align-items: center;
+  display: flex;
+  align-items: baseline;
   margin-bottom: 40px;
   @include tablet {
     margin: 0;
   }
 }
 
+.reports {
+  margin-right: 10px;
+  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+}
+
 .formWrapper {
-  position: relative;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -30,10 +35,6 @@
     align-items: baseline;
     flex-direction: row;
   }
-}
-
-.reports {
-  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
 }
 
 .balance {
@@ -45,7 +46,6 @@
 }
 
 .form {
-  position: relative;
   margin-bottom: 50px;
   @include tablet {
     margin-bottom: 0;
@@ -53,7 +53,7 @@
 }
 
 .input {
-  padding: 12px 16px;
+  padding: 13px 16px;
   @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
   text-transform: uppercase;
   width: 50%;
@@ -78,7 +78,7 @@
 }
 
 .btn {
-  padding: 12px 18px;
+  padding: 13px 18px;
   @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
   text-transform: uppercase;
   background-color: transparent;
@@ -97,4 +97,22 @@
     color: var(--background-color-main);
     border: 2px solid var(--accent-color);
   }
+}
+
+.mobileCalend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addBtn {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+  text-transform: uppercase;
+  background-color: var(--accent-color);
+  color: var(--background-color-main);
+  border: none;
 }

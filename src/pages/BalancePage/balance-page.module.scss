@@ -1,7 +1,31 @@
 @import "../../sass/main.scss";
 
 .section {
-  position: relative;
   padding-top: 40px;
-  padding-bottom: 12px;
+
+  @include tablet {
+    padding-bottom: 60px;
+  }
+  @include desktop {
+    padding-bottom: 83px;
+  }
+}
+
+.tableWrapper {
+  position: relative;
+  padding: 24px 40px 40px 40px;
+  margin-bottom: 40px;
+  background-color: white;
+  box-shadow: 0px 10px 60px rgba(170, 178, 197, 0.2);
+  border-radius: 0px 30px 30px 30px;
+  @include desktop {
+    padding: 32px 32px 61px 32px;
+
+    margin: 0;
+  }
+}
+
+.tableAndSummaryWrapper {
+  display: flex;
+  justify-content: space-between;
 }

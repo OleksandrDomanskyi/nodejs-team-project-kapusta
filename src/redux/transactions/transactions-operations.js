@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import * as API from "../../shared/services/balance";
+import * as API from "../../shared/services/transactions";
 
 export const fetchBalance = createAsyncThunk(
   "balance/fetch",

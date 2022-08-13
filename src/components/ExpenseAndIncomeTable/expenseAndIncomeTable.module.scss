@@ -1,69 +1,215 @@
 @import "../../sass/main.scss";
 
 .tableWrapper {
-  margin-top: 20px;
-  max-width: 420px;
+  margin: 0 auto;
+  max-width: 320px;
+  max-height: 100px;
+  @include tablet {
+    max-width: 624px;
+    max-height: 444px;
+  }
+  @include desktop {
+    max-width: 746px;
+    margin: 0;
+  }
 }
 
 .table {
   width: 100%;
-  // margin: 0 auto;
+  @include desktop {
+    width: 746px;
+  }
+  ::-webkit-scrollbar {
+    width: 5px;
+    background: var(--background-color-decoration);
+    @include desktop {
+      width: 8px;
+    }
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 2px;
+  }
 }
 
 .thead {
-  display: none;
+  @include mobile {
+    display: none;
+  }
+  @include tablet {
+  }
 }
-// .tbody {
+
+.tbody {
+  @include tablet {
+    max-height: 344px;
+    display: block;
+    overflow-y: scroll;
+    border-bottom: 1px solid var(--background-color-decoration);
+  }
+}
+// ::-webkit-scrollbar {
+//   width: 5px;
+//   background-color: var(--background-color-decoration);
+// }
+// ::-webkit-scrollbar-thumb {
+//   border-radius: 2px;
+//   background-color: var(--accent-color);
 // }
 
 .line {
   position: relative;
   height: 40px;
-  // padding: 5px;
   display: flex;
-  align-items: baseline;
-  justify-content: flex-start;
-
+  border: none;
   border-bottom: 1px solid var(--background-color-decoration);
+
+  @include tablet {
+    border: 2px solid var(--background-color-decoration);
+    border-bottom: none;
+    align-items: center;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:last-child {
+      border-bottom: 2px solid var(--background-color-decoration);
+    }
+  }
+}
+
+.title {
+  @include tablet {
+    border-radius: 20px 20px 0 0;
+    background-color: var(--input--auth-form-bg-color);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
+  }
+
+  & .date {
+    margin-left: 0;
+    margin-right: 20px;
+    @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
+  }
+
+  & .description {
+    margin-right: 57px;
+  }
+
+  & .category {
+    margin-right: 110px;
+    @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
+  }
+  @include desktop {
+    & .date {
+      margin-left: 19px;
+    }
+
+    & .description {
+      margin-right: 117px;
+      flex-basis: 190px;
+    }
+
+    & .category {
+      margin-right: 110px;
+    }
+  }
 }
 
 .date {
-  padding-top: 25px;
   margin-right: 30px;
   flex-basis: 50px;
   @include fs(8px, null, 1.12, 0.04em, var(--text-color));
+
+  @include mobile {
+    display: flex;
+    align-items: flex-end;
+  }
+  @include tablet {
+    margin-left: 10px;
+    margin-right: 50px;
+
+    @include fs(12px, null, 1.16, 0.04em, var(--text-color));
+  }
+
+  @include desktop {
+    margin-right: 50px;
+    margin-left: 20px;
+  }
 }
 
 .description {
   flex-basis: 100px;
   @include mobile {
     position: absolute;
-    top: 0;
+    top: 5px;
     left: 0;
     order: -1;
   }
+  @include tablet {
+    flex-basis: 190px;
 
-  span {
-    padding: 10px 0;
+    @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
+  }
+  @include desktop {
+    flex-basis: 270px;
+  }
+
+  & span {
     @include fs(12px, 700, 1.16, 0.04em, var(--text-color));
+
+    @include tablet {
+      @include fs(12px, 400, 1.16, 0.04em, var(--text-color));
+    }
   }
 }
 
 .category {
   flex-basis: 50px;
   @include fs(8px, null, 1.12, 0.04em, var(--text-color));
+
+  @include mobile {
+    display: flex;
+    align-items: flex-end;
+  }
+  @include tablet {
+    margin-right: 40px;
+    @include fs(12px, 400, 1.16, 0.04em, var(--text-color));
+  }
+  @include desktop {
+    margin-right: 60px;
+  }
 }
 
 .sum {
   margin-right: 10px;
   flex-basis: 200px;
-  display: flex;
-  justify-content: flex-end;
   @include fs(12px, 700, 1.16, 0.04em, var(--text-color));
+
+  @include mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  @include tablet {
+    margin-right: 35px;
+    flex-basis: 120px;
+    text-align: end;
+  }
+  @include desktop {
+    margin-right: 45px;
+  }
 }
 
 .delete {
   flex-basis: 30px;
-  display: flex;
-  justify-content: flex-end;
+  @include mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }
