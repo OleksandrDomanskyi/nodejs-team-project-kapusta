@@ -31,6 +31,7 @@ const Balance = () => {
       const newBalance = await setUserBalance(
         parseFloat(balance.split(" ").join(""))
       );
+      console.log(newBalance);
     }
   };
 
