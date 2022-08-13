@@ -19,16 +19,16 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     // console.log(e.target.elements);
-    const { description, sum, category } = e.target.elements;
-    const data = {
-      type,
-      day: startDate.getDate(),
-      month: startDate.getMonth() + 1,
-      year: startDate.getFullYear(),
-      description: description.value,
-      category: category.value,
-      sum: sum.value,
-    };
+    // const { description, sum, category } = e.target.elements;
+    // const data = {
+    //   type,
+    //   day: startDate.getDate(),
+    //   month: startDate.getMonth() + 1,
+    //   year: startDate.getFullYear(),
+    //   description: description.value,
+    //   category: category.value,
+    //   sum: sum.value,
+    // };
     // closeModal();
   };
 

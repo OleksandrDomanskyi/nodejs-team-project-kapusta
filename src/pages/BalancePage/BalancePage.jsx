@@ -1,5 +1,5 @@
 import { useMediaQuery } from "react-responsive";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import BgWrapper from "../../components/BgWrapper";
 import Balance from "../../components/Balance";
