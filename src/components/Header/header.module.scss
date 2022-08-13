@@ -1,0 +1,72 @@
+@import "../../sass/main.scss";
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 56px;
+  @include tablet {
+    padding: 0 32px;
+  }
+  @include desktop {
+    padding: 0 16px;
+  }
+}
+
+.headerLogo {
+  cursor: pointer;
+}
+
+.userBlock {
+  display: flex;
+}
+.logoutBtn {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  color: var(--text-color);
+  text-decoration-line: underline;
+  margin-left: 16px;
+
+  @include tablet {
+    margin-left: 20px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+      display: block;
+      height: 36px;
+      width: 1px;
+      background-color: #e0e5eb;
+      right: 44px;
+      top: 0px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  &:hover {
+    color: var(--accent-color);
+  }
+}
+
+.logoutBtn_mobile {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+  &:hover {
+    color: var(--accent-color);
+  }
+}

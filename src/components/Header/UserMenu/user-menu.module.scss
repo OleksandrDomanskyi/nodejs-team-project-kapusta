@@ -1,0 +1,20 @@
+@import "../../../sass/main.scss";
+
+.userInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.avatar {
+  border-radius: 50%;
+}
+.user {
+  padding-left: 16px;
+  margin-right: 16px;
+  @include tablet {
+    margin-right: 20px;
+  }
+  @include desktop {
+    padding-left: 12px;
+  }
+}
