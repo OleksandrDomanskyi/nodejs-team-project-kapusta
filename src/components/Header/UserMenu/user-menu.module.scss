@@ -7,14 +7,16 @@
 }
 .avatar {
   border-radius: 50%;
+  margin-right: 16px;
+  @include desktop {
+    margin-right: 12px;
+  }
 }
 .user {
-  padding-left: 16px;
   margin-right: 16px;
+  display: none;
   @include tablet {
     margin-right: 20px;
-  }
-  @include desktop {
-    padding-left: 12px;
+    display: block;
   }
 }
