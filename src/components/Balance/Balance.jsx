@@ -10,8 +10,10 @@ import Calendar from "../Calendar";
 import BalanceModal from "./BalanceModal";
 import BalanceFormModal from "./BalanceFormModal";
 
+import { setUserBalance } from "../../shared/services/auth";
+
 const Balance = () => {
-  const [balance, setBalance] = useState("1");
+  const [balance, setBalance] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -22,8 +24,14 @@ const Balance = () => {
     setBalance(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (balance) {
+      const newBalance = await setUserBalance(
+        parseFloat(balance.split(" ").join(""))
+      );
+    }
   };
 
   const openModal = () => {

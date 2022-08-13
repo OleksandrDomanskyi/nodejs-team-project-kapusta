@@ -1,4 +1,4 @@
-export const testData = [
+const testData = [
   {
     monce: "January",
     value: 3213,
@@ -24,3 +24,5 @@ export const testData = [
     value: 333,
   },
 ];
+
+export default testData;
