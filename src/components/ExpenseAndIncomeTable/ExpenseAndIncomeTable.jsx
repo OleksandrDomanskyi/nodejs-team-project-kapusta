@@ -1,5 +1,7 @@
 import NumberFormat from "react-number-format";
 
+import iconsSprite from "../../images/icons.svg";
+
 import s from "./expenseAndIncomeTable.module.scss";
 
 import { data } from "./tableData";
@@ -25,7 +27,9 @@ const ExpenseAndIncomeTable = () => {
                 <td className={s.description}>
                   <span>{el.description}</span>
                 </td>
-                <td className={s.category}>{el.category}</td>
+                <td className={s.category}>
+                  <span>{el.category}</span>
+                </td>
                 <td className={s.sum}>
                   <NumberFormat
                     value={el.sum}
@@ -40,12 +44,20 @@ const ExpenseAndIncomeTable = () => {
                   />
                 </td>
                 <td className={s.delete}>
-                  <button>X</button>
+                  <svg
+                    className={s.deleteIcon}
+                    aria-label="delete"
+                    width="18px"
+                    height="18px"
+                  >
+                    <use href={`${iconsSprite}#icon-delete`}></use>
+                  </svg>
                 </td>
               </tr>
             ))}
         </tbody>
       </table>
+      {/* {children} */}
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { fetchBalance } from "./balance-operations";
+import { fetchBalance } from "./transactions-operations";
 
 const initialState = {
   value: "5555",
