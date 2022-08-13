@@ -1,50 +1,13 @@
-// import instance from "./auth";
-// import axios from "axios";
+import instance from "./auth";
 
-// export const getBalance = async (id) => {
-//   console.log(id);
-//   try {
-//     const { data } = await instance.get("/api/balance", {
-//       data: {
-//         userId: id,
-//       },
-//     });
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-export const getBalance = async (id) => {
-  //   console.log(id);
+export const createTransaction = async (data) => {
   try {
-    const data = {
-      userId: id,
-    };
-    // const { data } = await axios.get(
-    //   "https://kapusta-net-app.herokuapp.com/api/balance",
-    //   {
-    //     body: {
-    //       userId: id,
-    //     },
-    //   }
-    // );
-    console.log(data);
+    const { response } = await instance.post("/api/transactions", {});
     return data;
   } catch (error) {
     console.log(error);
   }
 };
 
-// export const getBalance = async () => {
-//   try {
-//     const data1 = {
-//       email: "test.gmail.com",
-//       password: "1111111",
-//     };
-//     const { data } = await instance.get("/api/users/register", data1);
-//     return data;
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
+// const { _id, balance } = req.user;
+// const { type, category, value, year, month, day } = req.body;

@@ -1,17 +1,24 @@
-import { Link } from "react-router-dom";
+import s from "./expenseAndIncomeButtons.module.scss";
 
-import s from './expenseAndIncomeButtons.module.scss'
-
-const ExpenseAndIncomeButtons = () => {
-    return ( <div className={s.linkWrapper}>
-        <Link className={s.link} to="/expenses">
-          
-          Expenses
-        </Link>
-        <Link className={s.link} to="/incomes">
-          Income
-        </Link>
-      </div> );
-}
+const ExpenseAndIncomeButtons = ({ isActive, onClick }) => {
+  return (
+    <div className={s.btnWrapper}>
+      <button
+        onClick={onClick}
+        className={`${isActive === "expenses" ? s.active : s.btn}`}
+        data-name="expenses"
+      >
+        Expenses
+      </button>
+      <button
+        onClick={onClick}
+        className={`${isActive !== "expenses" ? s.active : s.btn}`}
+        data-name="income"
+      >
+        Income
+      </button>
+    </div>
+  );
+};
 
 export default ExpenseAndIncomeButtons;
