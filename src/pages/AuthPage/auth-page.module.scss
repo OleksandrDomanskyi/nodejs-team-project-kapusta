@@ -174,3 +174,20 @@ line-height: 1.14;
 letter-spacing: 0.02em;
 
 }
+
+
+
+.back {
+  position: absolute;
+  height: 286px;
+  width: 100vw;
+  background-color: var(--background-color-decoration);
+  border-bottom-left-radius: 110px;
+  z-index: -1;
+  @include tablet {
+    height: 526px;
+  }
+  @include desktop {
+    height: 49%;
+  }
+}
