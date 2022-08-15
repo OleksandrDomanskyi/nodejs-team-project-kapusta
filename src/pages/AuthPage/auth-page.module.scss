@@ -1,0 +1,193 @@
+@import "../../sass/main.scss";
+.section{
+    background-image: url(../../images/cabbages/half-cabbage.svg),
+    url(../../images/cabbages/cabbage.svg);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: right 104px,  35px bottom;
+    padding-bottom: 105px;
+    @include tablet{
+        padding-top: 90px;
+        padding-bottom: 90px;
+        background-image: url(../../images/cabbages/cabbages.svg),url(../../images/cabbages/two-cabbages.svg) ;
+        background-repeat: no-repeat,no-repeat;
+        background-position: left top 28px,left 103px bottom 10px;
+        padding-bottom: 155px;
+    
+    }
+    @include desktop{
+    background-image: url(../../images/cabbages/a-lot-of-cabbage.svg),url(../../images/cabbages/two-cabbages.svg)   ;
+    
+    background-repeat: no-repeat,no-repeat;
+    background-position: left top 28px,left 103px bottom 10px;
+    
+    padding-top: 117px;
+    padding-left: 229px;
+    padding-right: 91px;
+    padding-bottom: 185px;
+}
+    
+    
+}
+
+.container {
+    max-width: 320px;
+    padding: 0 20px;
+    margin: 0 auto;
+
+    @include mobile {
+        max-width: 480px;
+        display: flex;
+    flex-direction: column;
+    }
+
+    @include tablet {
+        max-width: 768px;
+        padding: 0 32px;
+    }
+
+    @include desktop {
+        max-width: 1280px;
+        padding: 0 16px;
+            display: flex;
+            justify-content: space-between;
+        
+    }
+}
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    background-color:     var(--background-color-main);
+    padding: 40px 20px;
+    @include tablet{
+        
+        margin-left: auto;
+        margin-right: auto;
+        width: 426px;
+        padding: 56px 84px;
+    }
+    @include desktop{
+        padding: 56px 84px;
+        
+    }
+}
+
+.image{
+    @include tablet{
+        height: 77px;
+        width: 306px;
+    }
+    @include desktop{
+        width: 377px;
+    }
+}
+
+.title{     
+    padding: 86px 117px 67px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-transform: uppercase;
+    @include tablet{
+        
+        padding: 0 0 0 0;
+        margin-left: 139px;
+        margin-bottom: 80px;
+        font-size: 16px;
+        line-height: 1.19;
+        letter-spacing: 0.18em;
+    }
+    @include desktop{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+        // height: 286px;
+        // width: 100%;
+        // // background-color: var(--background-color-decoration);
+        // background-color: red;
+        // border-bottom-left-radius: 35%;
+        // @include tablet {
+        //   height: 44%;
+        // }
+        // @include desktop {
+        //   height: 66%;
+        // }
+}
+.text{
+    margin-bottom: 16px;
+    text-align: center;
+    font-weight: 400;
+ @include tablet{
+    font-weight: 400;
+font-size: 12px;
+line-height: 1.16;
+letter-spacing: 0.04em;
+margin-bottom: 20px;
+ }
+ @include desktop{
+    margin-bottom: 20px;
+ }
+}
+.registration_text{
+    margin-top: 32px;
+    margin-bottom: 16px;
+    font-size: 12px;
+line-height: 1.16;
+letter-spacing: 0.04em;
+@include tablet{
+    margin-bottom: 20px;
+}
+@include desktop{
+    margin-bottom: 20px;
+}
+}
+
+.google{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    width: 122px;
+    text-align: center;
+    background:var(--input--auth-form-bg-color);
+    border-radius: 26px;
+    border: none;
+    padding: 10px 18px;
+    
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.3);
+    
+}
+.google::before{
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    background-image: url(../../images/google.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-weight: 500;
+font-size: 14px;
+line-height: 1.14;
+letter-spacing: 0.02em;
+
+}
+
+
+
+.back {
+  position: absolute;
+  height: 286px;
+  width: 100vw;
+  background-color: var(--background-color-decoration);
+  border-bottom-left-radius: 110px;
+  z-index: -1;
+  @include tablet {
+    height: 526px;
+  }
+  @include desktop {
+    height: 49%;
+  }
+}
