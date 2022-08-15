@@ -1,7 +1,5 @@
-import { useState } from "react";
 
 import AuthForm from "../../components/AuthForm/AuthForm";
-import BgWrapper from "../../components/BgWrapper";
 
 import title from "../../images/title.svg"
 import s from "./auth-page.module.scss"
