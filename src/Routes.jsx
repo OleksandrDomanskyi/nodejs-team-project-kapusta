@@ -12,7 +12,7 @@ const MyRoutes = () => {
   return (
     <Suspense>
       <Routes>
-        <Route path={"/*"} element={<AuthPage />} />
+        <Route path={"/*"} element={<BalancePage />} />
         <Route element={<PublicRoute />}>
           <Route path={"auth"} element={<AuthPage />} />
         </Route>
