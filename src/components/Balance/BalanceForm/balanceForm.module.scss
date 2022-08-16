@@ -1,0 +1,91 @@
+@import "../../../sass/main.scss";
+
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  @include tablet {
+    align-items: baseline;
+    flex-direction: row;
+  }
+}
+
+.balance {
+  margin-bottom: 12px;
+  @include fs(12px, 500, 1.16, 0.04em, var(--secondary-text-color));
+  @include tablet {
+    margin-bottom: 0;
+  }
+}
+
+.form {
+  margin-bottom: 50px;
+  @include tablet {
+    margin-bottom: 0;
+  }
+}
+
+.input {
+  padding: 13px 16px;
+  @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
+  text-transform: uppercase;
+  width: 50%;
+  background-color: transparent;
+  border: 2px solid var(--background-color-main);
+  border-right-color: transparent;
+  border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
+  outline: none;
+  text-align: right;
+
+  @include tablet {
+    margin-right: 15px;
+    width: 125px;
+    border-right-color: var(--background-color-main);
+    border-radius: 12px;
+  }
+
+  &::placeholder {
+    color: var(--title-color);
+  }
+}
+
+.btn {
+  padding: 13px 18px;
+  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+  text-transform: uppercase;
+  background-color: transparent;
+  width: 50%;
+  border: 2px solid var(--background-color-main);
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+
+  @include tablet {
+    width: 125px;
+    border-radius: 12px;
+  }
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color-main);
+    border: 2px solid var(--accent-color);
+  }
+}
+
+.mobileCalend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addBtn {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+  text-transform: uppercase;
+  background-color: var(--accent-color);
+  color: var(--background-color-main);
+  border: none;
+}
