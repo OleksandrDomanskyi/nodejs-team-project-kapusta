@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 
 import logo from "../../images/logo.png"
-import logoutImg from "../../images/logout.png"
+import iconsSprite from "../../images/icons.svg";
 import UserMenu from "./UserMenu";
 
 import { logout } from "../../redux/auth/auth-operations";
@@ -25,7 +25,9 @@ const Header = ({isLogin = true}) => {
                     <>
                       <UserMenu />
                       <button onClick={() => dispatch(logoutUser)} type="button" className={styles.logoutBtn_mobile}>
-                        <img src={logoutImg} alt="logout"/>
+                        <svg width="24px" height="24px">
+                          <use href={`${iconsSprite}#icon-logout`}></use>
+                        </svg>
                       </button>
                       <button onClick={() => dispatch(logoutUser)} type="button" className={styles.logoutBtn}>Exit</button>
                     </>

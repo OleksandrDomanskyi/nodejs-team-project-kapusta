@@ -14,7 +14,7 @@ const Calendar = ({ startDate, onHandleChange }) => {
         width="20px"
         height="20px"
       >
-        <use href={`${iconsSprite}#icon-calend`}></use>
+        <use href={`${iconsSprite}#icon-calendar`}></use>
       </svg>
       <div>
         <DatePicker

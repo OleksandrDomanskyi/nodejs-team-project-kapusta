@@ -50,7 +50,7 @@ const ExpenseAndIncomeTable = () => {
                     width="18px"
                     height="18px"
                   >
-                    <use href={`${iconsSprite}#icon-delete`}></use>
+                    <use href={`${iconsSprite}#icon-trash`}></use>
                   </svg>
                 </td>
               </tr>

@@ -21,7 +21,7 @@ const BalanceFormModal = ({ transactionType, closeModal }) => {
             }}
           >
             <svg className={s.arrow} width="24px" height="24px">
-              <use href={`${iconsSprite}#icon-arrow`}></use>
+              <use href={`${iconsSprite}#icon-arrow-down`}></use>
             </svg>
           </div>
           <ExpenseAndIncomeForm

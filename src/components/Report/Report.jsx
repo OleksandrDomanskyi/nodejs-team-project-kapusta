@@ -1,13 +1,15 @@
-import ReportsHeader from "../ReportsHeader";
-import ReportsMenu from "../ReportsMenu/ReportsMenu";
+import ReportNavigationBar from "./ReportNavigationBar/ReportNavigationBar";
+// import ReportsHeader from "../ReportsHeader";
+// import ReportsMenu from "../ReportsMenu/ReportsMenu";
 
 
 const Report = () => {
 
     return (
         <>
-           <ReportsMenu/>,
-           <ReportsHeader/>,
+            <ReportNavigationBar/>
+           {/* <ReportsMenu/>,
+           <ReportsHeader/>, */}
         </>
     );
 }

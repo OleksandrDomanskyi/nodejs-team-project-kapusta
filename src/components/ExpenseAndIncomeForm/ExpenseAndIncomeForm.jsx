@@ -73,7 +73,7 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
             minLength={1}
           />
           <svg className={s.iconSum} aria-label="calculator">
-            <use href={`${iconsSprite}#icon-calc`}></use>
+            <use href={`${iconsSprite}#icon-calculator`}></use>
           </svg>
         </label>
       </div>
