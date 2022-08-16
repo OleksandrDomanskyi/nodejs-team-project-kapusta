@@ -1,0 +1,17 @@
+@import "../../../../sass/main.scss";
+
+.link {
+    display: inline-flex;
+    align-items: flex-end;
+    text-decoration: none;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+}
+
+.text {
+    margin-left: 16px;
+    @include fs(12px, 400, 14px, 0.04em, var(--text-color));
+}

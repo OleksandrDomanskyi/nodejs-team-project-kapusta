@@ -1,12 +1,16 @@
 import GoBack from "./GoBack/GoBack";
 import BalanceForm from "../../Balance/BalanceForm/BalanceForm";
+import CurrentPeriodItem from "./CurrentPeriodItem/CurrentPeriodItem";
+
+import styles from "./report-navigation-bar.module.scss";
 
 const ReportNavigationBar = () => {
 
     return (
-        <div>
+        <div className={styles.container}>
             <GoBack />
-            <BalanceForm/>
+            <BalanceForm />
+            <CurrentPeriodItem />
         </div>
     );
 };
