@@ -19,6 +19,7 @@ import {
 const persistConfig = {
   key: "auth",
   storage,
+  whiteList: ["token", "isLogin"],
 };
 
 const persistedReducer = persistReducer(persistConfig, userReducer);
