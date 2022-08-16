@@ -44,7 +44,7 @@ export const getCurrent = async (token) => {
 };
 
 export const logout = async () => {
-  const { data } = await instance.get("/users/logout");
+  const { data } = await instance.post("/users/logout");
   removeToken();
   return data;
 };
