@@ -1,4 +1,6 @@
-// import PropTypes from "prop-types";
+
+
+// import PropTypes from "prop-types"
 
 import defaultAvatar from "../../../images/defaultAvatar.jpg"
 import styles from "./user-menu.module.scss";

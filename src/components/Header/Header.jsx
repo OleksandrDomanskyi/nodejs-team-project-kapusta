@@ -1,11 +1,19 @@
+import { useDispatch } from "react-redux";
+
 import logo from "../../images/logo.png"
-import logout from "../../images/logout.png"
+import logoutImg from "../../images/logout.png"
 import UserMenu from "./UserMenu";
+
+import { logout } from "../../redux/auth/auth-operations";
 
 import styles from "./header.module.scss"
 
-const Header = () => {
-  const isLogin = true;
+const Header = ({isLogin = true}) => {
+  const dispatch = useDispatch();
+  const logoutUser = () => {
+    dispatch(logout())
+  };
+  // const isLogin = true;
     return (
         <header >
             <div className={styles.headerContainer}>
@@ -16,10 +24,10 @@ const Header = () => {
                   {isLogin && (
                     <>
                       <UserMenu />
-                      <button type="button" className={styles.logoutBtn_mobile}>
-                        <img src={logout} alt="logout"/>
+                      <button onClick={() => dispatch(logoutUser)} type="button" className={styles.logoutBtn_mobile}>
+                        <img src={logoutImg} alt="logout"/>
                       </button>
-                      <button type="button" className={styles.logoutBtn}>Exit</button>
+                      <button onClick={() => dispatch(logoutUser)} type="button" className={styles.logoutBtn}>Exit</button>
                     </>
                   )}
               </div>
