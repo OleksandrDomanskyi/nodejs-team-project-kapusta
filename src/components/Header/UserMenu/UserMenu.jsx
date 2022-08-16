@@ -1,12 +1,10 @@
-
-
-// import PropTypes from "prop-types"
-
 import defaultAvatar from "../../../images/defaultAvatar.jpg"
 import styles from "./user-menu.module.scss";
 
+import useEmail from "../../../shared/hooks/useUserEmail";
+
 const UserMenu = () => {
-    const name = "User Name"
+    const name = useEmail();
     return (
         <div className={styles.userInfo}>
             <div>
@@ -14,14 +12,8 @@ const UserMenu = () => {
             </div> 
             <div className={styles.user}>{name}</div>
         </div>
-        
-      
-
   );
 };
 
 export default UserMenu;
 
-// UserMenu.propTypes = {
-  
-// };
