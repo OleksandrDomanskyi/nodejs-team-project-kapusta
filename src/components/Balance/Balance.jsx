@@ -47,7 +47,7 @@ const Balance = ({ type }) => {
       )}
       <div className={s.balanceWrapper}>
         {!balance && <BalanceModal />}
-        <Link to="/report" className={s.reportsWrapper}>
+        <Link to="/reports" className={s.reportsWrapper}>
           <span className={s.reports}>Reports</span>
           <svg
             className={s.iconReport}
