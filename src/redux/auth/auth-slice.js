@@ -3,7 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 import { signup, login, getCurrentUser, logout } from "./auth-operations";
 
 const initialState = {
-  email: "",
+  user: {
+    email: "",
+    balance: "",
+  },
   token: "",
   isLogin: false,
   loading: false,
@@ -18,7 +21,6 @@ const authSlice = createSlice({
     [signup.pending]: (store, _) => ({ ...store, loading: true, error: null }),
     [signup.fulfilled]: (store, { payload }) => ({
       ...store,
-      isLogin: true,
       loading: false,
       ...payload,
     }),
@@ -68,7 +70,6 @@ const authSlice = createSlice({
       error: null,
     }),
     [logout.fulfilled]: (store, { payload }) => ({
-      userData: {},
       token: "",
       isLogin: false,
       loading: false,
