@@ -4,12 +4,13 @@ import AuthForm from "../../components/AuthForm/AuthForm";
 import title from "../../images/title.svg"
 import s from "./auth-page.module.scss"
 const AuthPage = () => {
-const login=()=>{
+  const login=()=>{
 
-};
-const reg=()=>{
+  };
+  const reg = () => {
 
-}
+  };
+  
   return (
     <>
       <div className={s.back}>

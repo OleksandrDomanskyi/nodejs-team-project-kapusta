@@ -1,10 +1,13 @@
-import Report from "../../components/Report";
+// import Report from "../../components/Report";
 
 const ReportPage = () => {
 
     return (
         <>
-        <Report />
+            <div>
+                <p>Report Page Here</p>
+            </div>
+            {/* <Report /> */}
         </>
     );
 }

@@ -17,7 +17,7 @@ const MyRoutes = () => {
           <Route path={"auth"} element={<AuthPage />} />
         </Route>
         <Route element={<PrivateRoute />}>
-          <Route path={"report"} element={<ReportPage />} />
+          <Route path={"reports"} element={<ReportPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

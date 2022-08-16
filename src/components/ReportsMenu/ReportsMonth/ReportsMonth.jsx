@@ -1,11 +1,11 @@
 import { useDispatch } from 'react-redux/es/exports';
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import sprite from '../../../images/arrows.svg';
 import { getTransactionsPerPeriod } from '../../../redux/reports/reports-operations';
 import { months, dateNow, getMonth } from './DataOptions';
 import { useNavigate } from 'react-router-dom';
-import authSelectors from '../../../redux/auth/auth-selectors';
+// import authSelectors from '../../../redux/auth/auth-selectors';
 import { langOpts } from './data';
 
 const ReportsMonth = () => {
@@ -13,7 +13,7 @@ const ReportsMonth = () => {
   const navigate = useNavigate();
   const [month, setMonth] = useState(() => getMonth(dateNow.getMonth()));
   const [year, setYear] = useState(() => dateNow.getFullYear());
-  const token = useSelector(authSelectors.getToken);
+  // const token = useSelector(authSelectors.getToken);
 
   const handleDecrementMonth = () => {
     dateNow.setMonth(dateNow.getMonth() - 1);
@@ -42,16 +42,16 @@ const ReportsMonth = () => {
     //eslint-disable-next-line
   }, [dispatch, month, year]);
 
-  useEffect(() => {
-    if (token.length > 0) {
-      dispatch(
-        getTransactionsPerPeriod(
-          `${year}-${String(months.indexOf(month) + 1).padStart(2, '0')}`
-        )
-      );
-    }
-    //eslint-disable-next-line
-  }, [token]);
+  // useEffect(() => {
+  //   if (token.length > 0) {
+  //     dispatch(
+  //       getTransactionsPerPeriod(
+  //         `${year}-${String(months.indexOf(month) + 1).padStart(2, '0')}`
+  //       )
+  //     );
+  //   }
+  //   //eslint-disable-next-line
+  // }, [token]);
 
   return (
     <div >
