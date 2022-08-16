@@ -22,5 +22,10 @@ export const setUserBalance = async (balance = 1000) => {
     console.log(error);
   }
 };
+//used for reports
+export const fetchTransactionsPerPeriod = async period => {
+  const resp = await axios.get('/transaction/period-data?date=' + period);
+  return resp.data;
+};
 
 export default instance;
