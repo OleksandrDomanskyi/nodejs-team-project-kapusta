@@ -1,15 +1,27 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-// import * as API from "../../shared/services/transactions";
+import * as API from "../../shared/services/auth";
 
-export const fetchBalance = createAsyncThunk(
-  "balance/fetch",
-  async (id, { rejectWithValue }) => {
+export const createTransaction = createAsyncThunk(
+  "transactions/createTransaction",
+  async (data, { rejectWithValue }) => {
     try {
-      // const data = await API.getBalance(id);
-      // return data;
+      const result = await API.createTransaction(data);
+      return result;
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
+
+// export const fetchBalance = createAsyncThunk(
+//   "transactions/getBalance",
+//   async (id, { rejectWithValue }) => {
+//     try {
+//       const data = await API.getUserBalance(id);
+//       return data;
+//     } catch (error) {
+//       return rejectWithValue(error);
+//     }
+//   }
+// );

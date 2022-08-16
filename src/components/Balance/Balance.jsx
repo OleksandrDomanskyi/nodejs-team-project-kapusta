@@ -1,4 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { useSelector, shallowEqual } from "react-redux";
+import { currentBalance } from "../../redux/auth/auth-selectors";
 import { Link } from "react-router-dom";
 
 import iconsSprite from "../../images/icons.svg";
@@ -9,8 +11,9 @@ import BalanceModal from "./BalanceModal";
 import BalanceFormModal from "./BalanceFormModal";
 
 const Balance = ({ type }) => {
-  const [balance, setBalance] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
+
+  const getCurrentBalance = useSelector(currentBalance, shallowEqual);
 
   const openModal = () => {
     setModalOpen((prev) => !prev);
@@ -23,7 +26,7 @@ const Balance = ({ type }) => {
         <BalanceFormModal closeModal={openModal} transactionType={type} />
       )}
       <div className={s.balanceWrapper}>
-        {!balance && <BalanceModal />}
+        {!getCurrentBalance && <BalanceModal />}
         <Link to="/reports" className={s.reportsWrapper}>
           <span className={s.reports}>Reports</span>
           <svg
@@ -35,7 +38,7 @@ const Balance = ({ type }) => {
             <use href={`${iconsSprite}#icon-reports`}></use>
           </svg>
         </Link>
-        <BalanceForm openModal={openModal} setMainBalance={setBalance} />
+        <BalanceForm openModal={openModal} />
       </div>
     </>
   );
