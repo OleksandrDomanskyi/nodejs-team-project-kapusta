@@ -6,7 +6,7 @@ import s from "./balanceForm.module.scss";
 
 import NumberFormat from "react-number-format";
 import { useMediaQuery } from "react-responsive";
-import { setUserBalance } from "../../../shared/services/API";
+import { setUserBalance } from "../../../shared/services/auth";
 
 import Calendar from "../../Calendar";
 

@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-import * as API from "../../shared/services/API";
+import * as API from "../../shared/services/auth";
 
 export const createTransaction = createAsyncThunk(
   "transactions/createTransaction",
