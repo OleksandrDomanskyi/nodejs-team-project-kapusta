@@ -1,31 +1,34 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// import { fetchTransactions } from "./transactions-operations";
+import { createTransaction } from "./transactions-operations";
 
 const initialState = {
-  value: "5555",
+  items: [],
   loading: false,
   error: null,
 };
 
-const balanceSlice = createSlice({
-  name: "balance",
+const transactionsSlice = createSlice({
+  name: "transactions",
   initialState,
   extraReducers: {
-    // [fetchBalance.pending]: (store, _) => ({
-    //   ...store,
-    //   loading: true,
-    //   error: null,
-    // }),
-    // [fetchBalance.fulfilled]: (store, { payload }) => {
-    //   store.loading = false;
-    //   store.value = payload;
-    // },
-    // [fetchBalance.rejected]: (store, { payload }) => {
-    //   store.loading = false;
-    //   store.error = payload;
-    // },
+    // Create Transaction
+    [createTransaction.pending]: (store, _) => ({
+      ...store,
+      loading: true,
+      error: null,
+    }),
+    [createTransaction.fulfilled]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      ...payload,
+    }),
+    [createTransaction.rejected]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      error: payload,
+    }),
   },
 });
 
-export default balanceSlice.reducer;
+export default transactionsSlice.reducer;

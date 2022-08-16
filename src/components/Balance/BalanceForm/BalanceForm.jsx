@@ -1,27 +1,32 @@
-import { useState } from "react";
-import NumberFormat from "react-number-format";
-import { useMediaQuery } from "react-responsive";
-
-import { setUserBalance } from "../../../shared/services/auth";
-
-import Calendar from "../../Calendar";
+import React, { useState, useEffect } from "react";
+import { useSelector, shallowEqual } from "react-redux";
+import { currentBalance } from "../../../redux/auth/auth-selectors";
 
 import s from "./balanceForm.module.scss";
 
-const BalanceForm = ({ openModal, setMainBalance }) => {
-  const [balance, setBalance] = useState("1");
+import NumberFormat from "react-number-format";
+import { useMediaQuery } from "react-responsive";
+import { setUserBalance } from "../../../shared/services/API";
+
+import Calendar from "../../Calendar";
+
+const BalanceForm = ({ openModal }) => {
+  const [balance, setBalance] = useState("");
+  const getCurrentBalance = useSelector(currentBalance, shallowEqual);
+  useEffect(() => {
+    setBalance(getCurrentBalance);
+  }, [getCurrentBalance]);
+
   const [startDate, setStartDate] = useState(new Date());
 
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   const handleChange = (e) => {
     setBalance(e.target.value);
-    setMainBalance(e.target.value);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setMainBalance(e.target.value);
 
     if (balance) {
       const newBalance = await setUserBalance(

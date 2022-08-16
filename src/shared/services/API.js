@@ -49,12 +49,32 @@ export const logout = async () => {
   return data;
 };
 
+export const getUserBalance = async () => {
+  try {
+    const { data } = await instance.get("/users/current");
+    return data.balance;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const setUserBalance = async (balance = 1000) => {
   try {
     const { data } = await instance.patch("/users/balance", {
       balance,
     });
     return data.balance;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createTransaction = async (transaction) => {
+  try {
+    const { data } = await instance.post("/transactions", {
+      transaction,
+    });
+    return data;
   } catch (error) {
     console.log(error);
   }
