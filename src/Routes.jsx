@@ -12,11 +12,11 @@ const MyRoutes = () => {
   return (
     <Suspense>
       <Routes>
-        <Route path={"/*"} element={<BalancePage />} />
         <Route element={<PublicRoute />}>
           <Route path={"auth"} element={<AuthPage />} />
         </Route>
         <Route element={<PrivateRoute />}>
+          <Route path={"/*"} element={<BalancePage />} />
           <Route path={"/reports"} element={<ReportPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
