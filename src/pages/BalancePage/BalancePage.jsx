@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import React, { useState } from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import { transactions } from "../../redux/transactions/transactions-selectors";
 
 import BgWrapper from "../../components/BgWrapper";
@@ -12,12 +12,14 @@ import Summary from "../../blocks/Summary";
 
 import s from "./balance-page.module.scss";
 
+// говорим стору сделать запрос за транзакциями
+
 const BalancePage = () => {
   const [transactionType, setTransactionType] = useState("income");
+  // const dispatch = useDispatch();
+  const getTransactions = useSelector(transactions, shallowEqual);
 
-  const getCurrentTransactions = useSelector(transactions, shallowEqual);
-
-  const filteredTransactions = getCurrentTransactions.filter(
+  const filteredTransactions = getTransactions.filter(
     (item) => item.type === transactionType
   );
 

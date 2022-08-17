@@ -69,6 +69,15 @@ export const setUserBalance = async (balance) => {
   }
 };
 
+export const fetchAllTransactions = async () => {
+  try {
+    const { data } = await instance.get("/transactions");
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const createTransaction = async (transaction) => {
   try {
     const { data } = await instance.post("/transactions", {

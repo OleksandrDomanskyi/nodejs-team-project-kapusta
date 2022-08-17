@@ -12,12 +12,8 @@ import iconsSprite from "../../images/icons.svg";
 import { options } from "./options";
 import { customStyles } from "./styles";
 
-// подписать на сторе.итемс
-// рендерить фильтрованый список
-
 const ExpenseAndIncomeForm = ({ type, closeModal }) => {
   const [startDate, setStartDate] = useState(new Date());
-
   const handleDateChange = (date) => setStartDate(date);
 
   const onSubmit = (e) => {

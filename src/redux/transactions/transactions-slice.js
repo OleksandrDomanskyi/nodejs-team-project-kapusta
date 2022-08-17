@@ -1,6 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { createTransaction } from "./transactions-operations";
+import {
+  createTransaction,
+  fetchAllTransactions,
+} from "./transactions-operations";
 
 const initialState = {
   items: [
@@ -126,6 +129,22 @@ const transactionsSlice = createSlice({
   name: "transactions",
   initialState,
   extraReducers: {
+    // fetchAllTransactions
+    [fetchAllTransactions.pending]: (store, _) => ({
+      ...store,
+      loading: true,
+      error: null,
+    }),
+    [fetchAllTransactions.fulfilled]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      items: payload,
+    }),
+    [fetchAllTransactions.rejected]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      error: payload,
+    }),
     // Create Transaction
     [createTransaction.pending]: (store, _) => ({
       ...store,
