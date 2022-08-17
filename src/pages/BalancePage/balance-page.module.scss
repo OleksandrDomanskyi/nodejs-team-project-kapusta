@@ -29,3 +29,18 @@
   display: flex;
   justify-content: space-between;
 }
+
+.cabbegeTablet {
+  position: absolute;
+  right: calc(50% - 350px);
+  bottom: -600px;
+  width: 183px;
+}
+
+.cabbegeDesktop {
+  position: absolute;
+  bottom: -70%;
+  left: 10px;
+  width: 100vw;
+  z-index: -1;
+}
