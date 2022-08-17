@@ -1,6 +1,6 @@
 import { useMediaQuery } from "react-responsive";
 import React, { useState } from "react";
-import { useSelector, shallowEqual, useDispatch } from "react-redux";
+import { useSelector, shallowEqual } from "react-redux";
 import { transactions } from "../../redux/transactions/transactions-selectors";
 
 import BgWrapper from "../../components/BgWrapper";
