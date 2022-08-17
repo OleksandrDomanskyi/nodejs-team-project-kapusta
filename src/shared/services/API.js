@@ -12,6 +12,8 @@ const instance = axios.create({
   //   },
 });
 
+// USER
+
 const addToken = (token) => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
@@ -49,9 +51,11 @@ export const logout = async () => {
   return data;
 };
 
+// BALANCE
+
 export const getUserBalance = async () => {
   try {
-    const { data } = await instance.get("/users/current");
+    const { data } = await instance.get("/users/balance");
     return data.balance;
   } catch (error) {
     console.log(error);
@@ -68,6 +72,8 @@ export const setUserBalance = async (balance) => {
     console.log(error);
   }
 };
+
+// TRANSACTION
 
 export const fetchAllTransactions = async () => {
   try {
