@@ -58,12 +58,21 @@ export const getUserBalance = async () => {
   }
 };
 
-export const setUserBalance = async (balance = 1000) => {
+export const setUserBalance = async (balance) => {
   try {
     const { data } = await instance.patch("/users/balance", {
       balance,
     });
     return data.balance;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchAllTransactions = async () => {
+  try {
+    const { data } = await instance.get("/transactions");
+    return data;
   } catch (error) {
     console.log(error);
   }

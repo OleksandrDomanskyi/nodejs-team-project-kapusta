@@ -59,3 +59,15 @@ export const logout = createAsyncThunk(
     }
   }
 );
+
+export const createBalance = createAsyncThunk(
+  "auth/createBalance",
+  async (data, { rejectWithValue }) => {
+    try {
+      const balance = await services.setUserBalance(data);
+      return balance;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

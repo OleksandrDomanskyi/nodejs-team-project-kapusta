@@ -14,6 +14,18 @@ export const createTransaction = createAsyncThunk(
   }
 );
 
+export const fetchAllTransactions = createAsyncThunk(
+  "transactions/fetchAllStransactions",
+  async (data, { rejectWithValue }) => {
+    try {
+      const result = await API.fetchAllTransactions(data);
+      return result;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);
+
 // export const fetchBalance = createAsyncThunk(
 //   "transactions/getBalance",
 //   async (id, { rejectWithValue }) => {

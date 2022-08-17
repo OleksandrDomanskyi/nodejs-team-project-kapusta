@@ -1,5 +1,7 @@
 import { useMediaQuery } from "react-responsive";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useSelector, shallowEqual } from "react-redux";
+import { transactions } from "../../redux/transactions/transactions-selectors";
 
 import BgWrapper from "../../components/BgWrapper";
 import Balance from "../../components/Balance";
@@ -13,12 +15,16 @@ import cabbageDesktop from "../../images/cabbageDesktop.png";
 
 import s from "./balance-page.module.scss";
 
-// 1. прокинуть пропсы type в форму создания транзакций done
-// 2. отправить данные из формы в стор
-// 3. подписать компонент-таблицу на стор
+// говорим стору сделать запрос за транзакциями
 
 const BalancePage = () => {
-  const [transactionType, setTransactionType] = useState("expenses");
+  const [transactionType, setTransactionType] = useState("income");
+  // const dispatch = useDispatch();
+  const getTransactions = useSelector(transactions, shallowEqual);
+
+  const filteredTransactions = getTransactions.filter(
+    (item) => item.type === transactionType
+  );
 
   const handleClick = (e) => {
     setTransactionType(e.target.dataset.name);
@@ -36,7 +42,7 @@ const BalancePage = () => {
           {isMobile && (
             <>
               <Balance type={transactionType} />
-              <ExpenseAndIncomeTable />
+              <ExpenseAndIncomeTable transactions={filteredTransactions} />
               <ExpenseAndIncomeButtons
                 onClick={handleClick}
                 isActive={transactionType}
@@ -48,7 +54,7 @@ const BalancePage = () => {
               <Balance type={transactionType} />
               <div className={s.tableWrapper}>
                 <ExpenseAndIncomeForm type={transactionType} />
-                <ExpenseAndIncomeTable />
+                <ExpenseAndIncomeTable transactions={filteredTransactions} />
                 <ExpenseAndIncomeButtons
                   onClick={handleClick}
                   isActive={transactionType}
@@ -69,7 +75,7 @@ const BalancePage = () => {
               <div className={s.tableWrapper}>
                 <ExpenseAndIncomeForm type={transactionType} />
                 <div className={s.tableAndSummaryWrapper}>
-                  <ExpenseAndIncomeTable />
+                  <ExpenseAndIncomeTable transactions={filteredTransactions} />
                   <Summary />
                 </div>
                 <ExpenseAndIncomeButtons

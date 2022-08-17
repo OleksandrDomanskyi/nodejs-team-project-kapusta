@@ -4,9 +4,7 @@ import iconsSprite from "../../images/icons.svg";
 
 import s from "./expenseAndIncomeTable.module.scss";
 
-import { data } from "./tableData";
-
-const ExpenseAndIncomeTable = () => {
+const ExpenseAndIncomeTable = ({ transactions }) => {
   return (
     <div className={s.tableWrapper}>
       <table className={s.table}>
@@ -20,8 +18,8 @@ const ExpenseAndIncomeTable = () => {
           </tr>
         </thead>
         <tbody className={s.tbody}>
-          {data.length &&
-            data.map((el) => (
+          {transactions.length &&
+            transactions.map((el) => (
               <tr key={el.id} className={s.line}>
                 <td className={s.date}>{el.date}</td>
                 <td className={s.description}>

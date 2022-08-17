@@ -3,6 +3,7 @@ import id from "bson-objectid";
 export const data = [
   {
     id: id(),
+    type: "expenses",
     date: "11.01.2011",
     description: "Beef",
     category: "food",
@@ -12,6 +13,7 @@ export const data = [
   {
     id: id(),
     date: "21.01.2021",
+    type: "expenses",
     description: "Salmon",
     category: "food",
     sum: "300",
@@ -19,6 +21,7 @@ export const data = [
   {
     id: id(),
     date: "01.01.2001",
+    type: "expenses",
     description: "Macallan",
     category: "drinks",
     sum: "18500",
@@ -26,6 +29,7 @@ export const data = [
   {
     id: id(),
     date: "21.01.2021",
+    type: "expenses",
     description: "Salmon",
     category: "food",
     sum: "300",
@@ -33,6 +37,7 @@ export const data = [
   {
     id: id(),
     date: "01.01.2001",
+    type: "income",
     description: "Macallan",
     category: "drinks",
     sum: "18500",
@@ -40,6 +45,7 @@ export const data = [
   {
     id: id(),
     date: "21.01.2021",
+    type: "income",
     description: "Salmon",
     category: "food",
     sum: "300",
@@ -47,6 +53,7 @@ export const data = [
   {
     id: id(),
     date: "01.01.2001",
+    type: "income",
     description: "Macallan",
     category: "drinks",
     sum: "18500",
@@ -54,6 +61,7 @@ export const data = [
   {
     id: id(),
     date: "21.01.2021",
+    type: "income",
     description: "Salmon",
     category: "food",
     sum: "300",
@@ -61,6 +69,7 @@ export const data = [
   {
     id: id(),
     date: "01.01.2001",
+    type: "income",
     description: "Macallan",
     category: "drinks",
     sum: "18500",
@@ -68,6 +77,7 @@ export const data = [
   {
     id: id(),
     date: "11.01.2011",
+    type: "income",
     description: "Borjomi",
     category: "drinks",
     sum: "450",
@@ -75,6 +85,7 @@ export const data = [
   {
     id: id(),
     date: "21.01.2021",
+    type: "expenses",
     description: "Salmon",
     category: "food",
     sum: "300",
@@ -82,12 +93,14 @@ export const data = [
   {
     id: id(),
     date: "01.01.2001",
+    type: "expenses",
     description: "Macallan",
     category: "drinks",
     sum: "18500",
   },
   {
     id: id(),
+    type: "expenses",
     date: "11.01.2011",
     description: "Borjomi",
     category: "drinks",
@@ -95,6 +108,7 @@ export const data = [
   },
   {
     id: id(),
+    type: "expenses",
     date: "21.01.2021",
     description: "Salmon",
     category: "food",

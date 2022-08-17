@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+
 import Select from "react-select";
 import NumberFormat from "react-number-format";
 
@@ -13,7 +14,6 @@ import { customStyles } from "./styles";
 
 const ExpenseAndIncomeForm = ({ type, closeModal }) => {
   const [startDate, setStartDate] = useState(new Date());
-
   const handleDateChange = (date) => setStartDate(date);
 
   const onSubmit = (e) => {
