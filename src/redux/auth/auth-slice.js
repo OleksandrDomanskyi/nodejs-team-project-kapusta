@@ -22,7 +22,7 @@ const authSlice = createSlice({
     [signup.fulfilled]: (store, { payload }) => ({
       ...store,
       loading: false,
-      ...payload,
+      userData: { email: payload.email },
     }),
     [signup.rejected]: (store, { payload }) => ({
       ...store,
