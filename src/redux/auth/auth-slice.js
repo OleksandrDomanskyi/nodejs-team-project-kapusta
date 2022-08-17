@@ -81,6 +81,7 @@ const authSlice = createSlice({
       isLogin: false,
       loading: false,
       error: null,
+      userData: { email: "" },
     }),
     [logout.rejected]: (store, { payload }) => ({
       ...store,

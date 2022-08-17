@@ -1,0 +1,66 @@
+@import "../../sass/main.scss";
+
+.overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.modal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 380px;
+  height: 194px;
+  background-color: #ffff;
+  box-shadow: 10px 10px 30px rgba(82, 85, 95, 0.4);
+  border-radius: 30px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+}
+
+.icon {
+  cursor: pointer;
+  width: 12px;
+  height: 12px;
+}
+
+.text {
+  margin: 0 0 20px 0;
+}
+//---?
+.options {
+  display: flex;
+  margin-right: -15px;
+}
+//---?
+.button {
+  border: 2px solid gray;
+  border-radius: 16px;
+  padding: 12px 0;
+  width: 125px;
+  background-color: transparent;
+  margin-right: 15px;
+  border: 2px solid #f5f6fb;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    background: #ff751d;
+    color: #ffff;
+  }
+}
