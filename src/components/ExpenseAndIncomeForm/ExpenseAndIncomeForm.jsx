@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux/es/exports";
+import { createTransaction } from "../../redux/transactions/transactions-operations";
 
 import Select from "react-select";
 import NumberFormat from "react-number-format";
@@ -16,19 +18,24 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
   const [startDate, setStartDate] = useState(new Date());
   const handleDateChange = (date) => setStartDate(date);
 
+  const dispatch = useDispatch();
+
   const onSubmit = (e) => {
     e.preventDefault();
-    // console.log(e.target.elements);
-    // const { description, sum, category } = e.target.elements;
-    // const data = {
-    //   type,
-    //   day: startDate.getDate(),
-    //   month: startDate.getMonth() + 1,
-    //   year: startDate.getFullYear(),
-    //   description: description.value,
-    //   category: category.value,
-    //   sum: sum.value,
-    // };
+    const { description, sum, category } = e.target.elements;
+    const arrayOfValue = sum.value.split(" ");
+    arrayOfValue.pop();
+    const normilizedValue = arrayOfValue.join("");
+    console.log(normilizedValue);
+    const transaction = {
+      type,
+      value: +normilizedValue,
+      category: category.value,
+      description: description.value,
+      date: startDate,
+    };
+
+    dispatch(createTransaction(transaction));
     // closeModal();
   };
 

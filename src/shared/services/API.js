@@ -94,6 +94,7 @@ export const createTransaction = async (transaction) => {
     console.log(error);
   }
 };
+
 //used for reports
 export const fetchTransactionsPerPeriod = async (period) => {
   const resp = await axios.get("/transaction/period-data?date=" + period);
