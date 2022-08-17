@@ -8,6 +8,9 @@ import ExpenseAndIncomeButtons from "../../components/ExpenseAndIncomeButtons";
 import ExpenseAndIncomeForm from "../../components/ExpenseAndIncomeForm";
 import Summary from "../../blocks/Summary";
 
+import cabbegeTablet from "../../images/cabbageTablet.png";
+import cabbageDesktop from "../../images/cabbageDesktop.png";
+
 import s from "./balance-page.module.scss";
 
 // 1. прокинуть пропсы type в форму создания транзакций done
@@ -52,6 +55,12 @@ const BalancePage = () => {
                 />
               </div>
               <Summary />
+
+              <img
+                className={s.cabbegeTablet}
+                src={cabbegeTablet}
+                alt="cabbeges"
+              />
             </>
           )}
           {isDesktop && (
@@ -71,6 +80,13 @@ const BalancePage = () => {
             </>
           )}
         </div>
+        {isDesktop && (
+          <img
+            className={s.cabbegeDesktop}
+            src={cabbageDesktop}
+            alt="cabbeges"
+          />
+        )}
       </section>
     </BgWrapper>
   );

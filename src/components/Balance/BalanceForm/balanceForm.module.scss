@@ -15,6 +15,7 @@
   @include fs(12px, 500, 1.16, 0.04em, var(--secondary-text-color));
   @include tablet {
     margin-bottom: 0;
+    margin-right: 20px;
   }
 }
 
