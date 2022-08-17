@@ -2,6 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 import * as services from "../../shared/services/API";
 
+// USER
+
 export const signup = createAsyncThunk(
   "auth/register",
   async (data, { rejectWithValue }) => {
@@ -59,6 +61,8 @@ export const logout = createAsyncThunk(
     }
   }
 );
+
+// BALANCE
 
 export const createBalance = createAsyncThunk(
   "auth/createBalance",

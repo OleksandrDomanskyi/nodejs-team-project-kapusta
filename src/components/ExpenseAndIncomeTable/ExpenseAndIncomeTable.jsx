@@ -18,10 +18,10 @@ const ExpenseAndIncomeTable = ({ transactions }) => {
           </tr>
         </thead>
         <tbody className={s.tbody}>
-          {transactions.length &&
+          {transactions.length > 0 &&
             transactions.map((el) => (
               <tr key={el.id} className={s.line}>
-                <td className={s.date}>{el.date}</td>
+                <td className={s.date}>{`${el.day}-${el.month}-${el.year}`}</td>
                 <td className={s.description}>
                   <span>{el.description}</span>
                 </td>
