@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
 import { currentBalance } from "../../../redux/auth/auth-selectors";
+import { createBalance } from "../../../redux/auth/auth-operations";
 
 import s from "./balanceForm.module.scss";
 
 import NumberFormat from "react-number-format";
 import { useMediaQuery } from "react-responsive";
-import { setUserBalance } from "../../../shared/services/API";
 
 import Calendar from "../../Calendar";
 
 const BalanceForm = ({ openModal }) => {
   const [balance, setBalance] = useState("");
   const getCurrentBalance = useSelector(currentBalance, shallowEqual);
+  const dispatch = useDispatch();
   useEffect(() => {
     setBalance(getCurrentBalance);
   }, [getCurrentBalance]);
@@ -27,13 +28,7 @@ const BalanceForm = ({ openModal }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (balance) {
-      const newBalance = await setUserBalance(
-        parseFloat(balance.split(" ").join(""))
-      );
-      console.log(newBalance);
-    }
+    dispatch(createBalance(parseFloat(balance.split(" ").join(""))));
   };
 
   const handleDateChange = (date) => setStartDate(date);

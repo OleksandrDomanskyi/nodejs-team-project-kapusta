@@ -58,7 +58,7 @@ export const getUserBalance = async () => {
   }
 };
 
-export const setUserBalance = async (balance = 1000) => {
+export const setUserBalance = async (balance) => {
   try {
     const { data } = await instance.patch("/users/balance", {
       balance,

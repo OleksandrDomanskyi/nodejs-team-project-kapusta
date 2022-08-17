@@ -1,6 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { signup, login, getCurrentUser, logout } from "./auth-operations";
+import {
+  signup,
+  login,
+  getCurrentUser,
+  logout,
+  createBalance,
+} from "./auth-operations";
 
 const initialState = {
   userData: {
@@ -55,7 +61,7 @@ const authSlice = createSlice({
       ...store,
       isLogin: true,
       loading: false,
-      ...payload,
+      userData: { balance: payload.balance, email: payload.email },
     }),
     [getCurrentUser.rejected]: (store, { payload }) => ({
       ...store,
@@ -82,6 +88,23 @@ const authSlice = createSlice({
       error: payload,
     }),
     //---------
+    // SET USER BALANCE
+    [createBalance.pending]: (store, _) => ({
+      ...store,
+      loading: true,
+      error: null,
+    }),
+    [createBalance.fulfilled]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      userData: { ...store.userData, balance: payload },
+    }),
+    [createBalance.rejected]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      error: payload,
+    }),
+    //----------
   },
 });
 
