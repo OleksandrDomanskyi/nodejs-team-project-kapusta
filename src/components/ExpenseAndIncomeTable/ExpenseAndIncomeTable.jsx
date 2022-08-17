@@ -21,7 +21,7 @@ const ExpenseAndIncomeTable = ({ transactions }) => {
           {transactions.length > 0 &&
             transactions.map((el) => (
               <tr key={el.id} className={s.line}>
-                <td className={s.date}>{el.date}</td>
+                <td className={s.date}>{`${el.year}-${el.month}-${el.day}`}</td>
                 <td className={s.description}>
                   <span>{el.description}</span>
                 </td>
