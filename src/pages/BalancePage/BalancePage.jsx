@@ -13,11 +13,8 @@ import cabbageDesktop from "../../images/cabbageDesktop.png";
 
 import s from "./balance-page.module.scss";
 
-// говорим стору сделать запрос за транзакциями
-
 const BalancePage = () => {
   const [transactionType, setTransactionType] = useState("expenses");
-  // const dispatch = useDispatch();
 
   const handleClick = (e) => {
     setTransactionType(e.target.dataset.name);
@@ -53,7 +50,7 @@ const BalancePage = () => {
                   isActive={transactionType}
                 />
               </div>
-              <Summary />
+              <Summary type={transactionType} />
 
               <img
                 className={s.cabbegeTablet}
@@ -69,7 +66,7 @@ const BalancePage = () => {
                 <ExpenseAndIncomeForm type={transactionType} />
                 <div className={s.tableAndSummaryWrapper}>
                   <ExpenseAndIncomeTable type={transactionType} />
-                  <Summary />
+                  <Summary type={transactionType} />
                 </div>
                 <ExpenseAndIncomeButtons
                   onClick={handleClick}
