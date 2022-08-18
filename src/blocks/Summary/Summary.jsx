@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux/es/exports";
 import { transactions } from "../../redux/transactions/transactions-selectors";
 import s from "./summary.module.scss";
-import testData from "./testData";
 import initialState from "./initialState";
 
 const Summary = ({ type }) => {
