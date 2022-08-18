@@ -1,10 +1,38 @@
+import React, { useEffect } from "react";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { transactions } from "../../redux/transactions/transactions-selectors";
+import { currentBalance } from "../../redux/auth/auth-selectors";
+import { createBalance } from "../../redux/auth/auth-operations";
+import {
+  fetchAllTransactions,
+  deleteTransaction,
+} from "../../redux/transactions/transactions-operations";
 import NumberFormat from "react-number-format";
 
 import iconsSprite from "../../images/icons.svg";
 
 import s from "./expenseAndIncomeTable.module.scss";
 
-const ExpenseAndIncomeTable = ({ transactions }) => {
+const ExpenseAndIncomeTable = ({ type }) => {
+  const dispatch = useDispatch();
+  const balance = useSelector(currentBalance);
+  useEffect(() => {
+    dispatch(fetchAllTransactions());
+  }, [dispatch]);
+
+  const getTransactions = useSelector(transactions, shallowEqual);
+
+  const filteredTransactions = getTransactions.filter(
+    (item) => item.type === type
+  );
+
+  const handleDelete = ({ id, value }) => {
+    dispatch(deleteTransaction(id));
+    let updatedBalance =
+      type === "income" ? +balance - value : +balance + value;
+    dispatch(createBalance(updatedBalance));
+  };
+
   return (
     <div className={s.tableWrapper}>
       <table className={s.table}>
@@ -18,9 +46,9 @@ const ExpenseAndIncomeTable = ({ transactions }) => {
           </tr>
         </thead>
         <tbody className={s.tbody}>
-          {transactions.length > 0 &&
-            transactions.map((el) => (
-              <tr key={el.id} className={s.line}>
+          {filteredTransactions.length > 0 &&
+            filteredTransactions.map((el) => (
+              <tr key={el._id} className={s.line}>
                 <td className={s.date}>{`${el.day}-${el.month}-${el.year}`}</td>
                 <td className={s.description}>
                   <span>{el.description}</span>
@@ -30,7 +58,7 @@ const ExpenseAndIncomeTable = ({ transactions }) => {
                 </td>
                 <td className={s.sum}>
                   <NumberFormat
-                    value={el.sum}
+                    value={el.value}
                     displayType={"text"}
                     thousandSeparator={" "}
                     suffix={" грн."}
@@ -42,14 +70,19 @@ const ExpenseAndIncomeTable = ({ transactions }) => {
                   />
                 </td>
                 <td className={s.delete}>
-                  <svg
-                    className={s.deleteIcon}
-                    aria-label="delete"
-                    width="18px"
-                    height="18px"
-                  >
-                    <use href={`${iconsSprite}#icon-trash`}></use>
-                  </svg>
+                  <div className={s.deleteWrap}>
+                    <svg
+                      onClick={() => {
+                        handleDelete({ id: el._id, value: el.value });
+                      }}
+                      className={s.deleteIcon}
+                      aria-label="delete"
+                      width="18px"
+                      height="18px"
+                    >
+                      <use href={`${iconsSprite}#icon-trash`}></use>
+                    </svg>
+                  </div>
                 </td>
               </tr>
             ))}

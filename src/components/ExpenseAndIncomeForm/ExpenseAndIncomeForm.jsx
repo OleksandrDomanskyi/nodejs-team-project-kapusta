@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { createTransaction } from "../../redux/transactions/transactions-operations";
+import { createBalance } from "../../redux/auth/auth-operations";
+import { currentBalance } from "../../redux/auth/auth-selectors";
+import { useMediaQuery } from "react-responsive";
 
 import Select from "react-select";
 import NumberFormat from "react-number-format";
@@ -19,6 +22,9 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
   const handleDateChange = (date) => setStartDate(date);
 
   const dispatch = useDispatch();
+  const balance = useSelector(currentBalance);
+
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -26,7 +32,6 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
     const arrayOfValue = sum.value.split(" ");
     arrayOfValue.pop();
     const normilizedValue = arrayOfValue.join("");
-    console.log(normilizedValue);
     const transaction = {
       type,
       value: +normilizedValue,
@@ -34,13 +39,22 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
       description: description.value,
       date: startDate,
     };
-
     dispatch(createTransaction(transaction));
-    // closeModal();
+    let updatedBalance =
+      type === "income"
+        ? +balance + +normilizedValue
+        : +balance - +normilizedValue;
+    dispatch(createBalance(updatedBalance));
+    e.target.reset();
+    if (isMobile) closeModal();
+  };
+
+  const handleResetForm = () => {
+    document.getElementById("create-transaction-form").reset();
   };
 
   return (
-    <form className={s.form} onSubmit={onSubmit}>
+    <form className={s.form} onSubmit={onSubmit} id="create-transaction-form">
       <div className={s.inputsWrapper}>
         <div className={s.calendWrapper}>
           <Calendar startDate={startDate} onHandleChange={handleDateChange} />
@@ -88,7 +102,7 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
         <button className={s.inputBtn} type="submit">
           INPUT
         </button>
-        <button className={s.clearBtn} type="button">
+        <button onClick={handleResetForm} className={s.clearBtn} type="button">
           CLEAR
         </button>
       </div>
