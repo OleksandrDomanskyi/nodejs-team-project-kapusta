@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux/es/exports";
+import { useDispatch, useSelector } from "react-redux/es/exports";
 import { createTransaction } from "../../redux/transactions/transactions-operations";
+import { createBalance } from "../../redux/auth/auth-operations";
+import { currentBalance } from "../../redux/auth/auth-selectors";
 import { useMediaQuery } from "react-responsive";
 
 import Select from "react-select";
@@ -20,6 +22,7 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
   const handleDateChange = (date) => setStartDate(date);
 
   const dispatch = useDispatch();
+  const balance = useSelector(currentBalance);
 
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
@@ -29,7 +32,6 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
     const arrayOfValue = sum.value.split(" ");
     arrayOfValue.pop();
     const normilizedValue = arrayOfValue.join("");
-    console.log(normilizedValue);
     const transaction = {
       type,
       value: +normilizedValue,
@@ -38,6 +40,11 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
       date: startDate,
     };
     dispatch(createTransaction(transaction));
+    let updatedBalance =
+      type === "income"
+        ? +balance + +normilizedValue
+        : +balance - +normilizedValue;
+    dispatch(createBalance(updatedBalance));
     e.target.reset();
     if (isMobile) closeModal();
   };
