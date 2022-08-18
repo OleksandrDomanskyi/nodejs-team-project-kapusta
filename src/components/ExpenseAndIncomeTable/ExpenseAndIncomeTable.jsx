@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { transactions } from "../../redux/transactions/transactions-selectors";
+import { currentBalance } from "../../redux/auth/auth-selectors";
+import { createBalance } from "../../redux/auth/auth-operations";
 import {
   fetchAllTransactions,
   deleteTransaction,
@@ -13,6 +15,7 @@ import s from "./expenseAndIncomeTable.module.scss";
 
 const ExpenseAndIncomeTable = ({ type }) => {
   const dispatch = useDispatch();
+  const balance = useSelector(currentBalance);
   useEffect(() => {
     dispatch(fetchAllTransactions());
   }, [dispatch]);
@@ -23,9 +26,11 @@ const ExpenseAndIncomeTable = ({ type }) => {
     (item) => item.type === type
   );
 
-  const handleDelete = (id) => {
-    // console.log(id);
+  const handleDelete = ({ id, value }) => {
     dispatch(deleteTransaction(id));
+    let updatedBalance =
+      type === "income" ? +balance - value : +balance + value;
+    dispatch(createBalance(updatedBalance));
   };
 
   return (
@@ -68,7 +73,7 @@ const ExpenseAndIncomeTable = ({ type }) => {
                   <div className={s.deleteWrap}>
                     <svg
                       onClick={() => {
-                        handleDelete(el._id);
+                        handleDelete({ id: el._id, value: el.value });
                       }}
                       className={s.deleteIcon}
                       aria-label="delete"
