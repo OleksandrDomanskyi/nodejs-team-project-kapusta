@@ -10,7 +10,7 @@ const Summary = ({ type }) => {
     (item) => item.type === type
   );
 
-  const summaryArray = JSON.parse(JSON.stringify(initialState));
+  const summaryArray = structuredClone(initialState);
 
   typedTransactions.forEach((transaction) => {
     summaryArray.forEach((month) => {
