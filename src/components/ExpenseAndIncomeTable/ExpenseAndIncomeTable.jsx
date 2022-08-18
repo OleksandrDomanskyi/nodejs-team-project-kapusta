@@ -1,7 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { transactions } from "../../redux/transactions/transactions-selectors";
-import { fetchAllTransactions } from "../../redux/transactions/transactions-operations";
+import {
+  fetchAllTransactions,
+  deleteTransaction,
+} from "../../redux/transactions/transactions-operations";
 import NumberFormat from "react-number-format";
 
 import iconsSprite from "../../images/icons.svg";
@@ -19,6 +22,11 @@ const ExpenseAndIncomeTable = ({ type }) => {
   const filteredTransactions = getTransactions.filter(
     (item) => item.type === type
   );
+
+  const handleDelete = (id) => {
+    // console.log(id);
+    dispatch(deleteTransaction(id));
+  };
 
   return (
     <div className={s.tableWrapper}>
@@ -45,7 +53,7 @@ const ExpenseAndIncomeTable = ({ type }) => {
                 </td>
                 <td className={s.sum}>
                   <NumberFormat
-                    value={el.sum}
+                    value={el.value}
                     displayType={"text"}
                     thousandSeparator={" "}
                     suffix={" грн."}
@@ -57,14 +65,19 @@ const ExpenseAndIncomeTable = ({ type }) => {
                   />
                 </td>
                 <td className={s.delete}>
-                  <svg
-                    className={s.deleteIcon}
-                    aria-label="delete"
-                    width="18px"
-                    height="18px"
-                  >
-                    <use href={`${iconsSprite}#icon-trash`}></use>
-                  </svg>
+                  <div className={s.deleteWrap}>
+                    <svg
+                      onClick={() => {
+                        handleDelete(el._id);
+                      }}
+                      className={s.deleteIcon}
+                      aria-label="delete"
+                      width="18px"
+                      height="18px"
+                    >
+                      <use href={`${iconsSprite}#icon-trash`}></use>
+                    </svg>
+                  </div>
                 </td>
               </tr>
             ))}

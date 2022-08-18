@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { createTransaction } from "../../redux/transactions/transactions-operations";
+import { useMediaQuery } from "react-responsive";
 
 import Select from "react-select";
 import NumberFormat from "react-number-format";
@@ -20,6 +21,8 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
 
   const dispatch = useDispatch();
 
+  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
+
   const onSubmit = (e) => {
     e.preventDefault();
     const { description, sum, category } = e.target.elements;
@@ -34,13 +37,17 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
       description: description.value,
       date: startDate,
     };
-
     dispatch(createTransaction(transaction));
-    // closeModal();
+    e.target.reset();
+    if (isMobile) closeModal();
+  };
+
+  const handleResetForm = () => {
+    document.getElementById("create-transaction-form").reset();
   };
 
   return (
-    <form className={s.form} onSubmit={onSubmit}>
+    <form className={s.form} onSubmit={onSubmit} id="create-transaction-form">
       <div className={s.inputsWrapper}>
         <div className={s.calendWrapper}>
           <Calendar startDate={startDate} onHandleChange={handleDateChange} />
@@ -88,7 +95,7 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
         <button className={s.inputBtn} type="submit">
           INPUT
         </button>
-        <button className={s.clearBtn} type="button">
+        <button onClick={handleResetForm} className={s.clearBtn} type="button">
           CLEAR
         </button>
       </div>

@@ -27,14 +27,15 @@ export const createTransaction = createAsyncThunk(
   }
 );
 
-// export const fetchBalance = createAsyncThunk(
-//   "transactions/getBalance",
-//   async (id, { rejectWithValue }) => {
-//     try {
-//       const data = await API.getUserBalance(id);
-//       return data;
-//     } catch (error) {
-//       return rejectWithValue(error);
-//     }
-//   }
-// );
+export const deleteTransaction = createAsyncThunk(
+  "transactions/deleteTransaction",
+  async (id, { rejectWithValue }) => {
+    try {
+      await API.deleteTransaction({ id });
+      const result = await API.fetchAllTransactions();
+      return result;
+    } catch (error) {
+      return rejectWithValue(error);
+    }
+  }
+);

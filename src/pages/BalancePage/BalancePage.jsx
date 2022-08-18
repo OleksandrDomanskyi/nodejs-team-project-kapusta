@@ -16,7 +16,7 @@ import s from "./balance-page.module.scss";
 // говорим стору сделать запрос за транзакциями
 
 const BalancePage = () => {
-  const [transactionType, setTransactionType] = useState("income");
+  const [transactionType, setTransactionType] = useState("expenses");
   // const dispatch = useDispatch();
 
   const handleClick = (e) => {

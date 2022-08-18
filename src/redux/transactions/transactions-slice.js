@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import {
   createTransaction,
   fetchAllTransactions,
+  deleteTransaction,
 } from "./transactions-operations";
 
 const initialState = {
@@ -156,6 +157,22 @@ const transactionsSlice = createSlice({
       items: payload.transactions,
     }),
     [createTransaction.rejected]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      error: payload,
+    }),
+    // Delete Transaction
+    [deleteTransaction.pending]: (store, _) => ({
+      ...store,
+      loading: true,
+      error: null,
+    }),
+    [deleteTransaction.fulfilled]: (store, { payload }) => ({
+      ...store,
+      loading: false,
+      items: payload.transactions,
+    }),
+    [deleteTransaction.rejected]: (store, { payload }) => ({
       ...store,
       loading: false,
       error: payload,
