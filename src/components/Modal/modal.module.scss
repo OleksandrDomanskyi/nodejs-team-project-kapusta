@@ -1,4 +1,5 @@
 @import "../../sass/main.scss";
+@import "../../sass/utils/mixins";
 
 .overlay {
   position: fixed;
@@ -42,6 +43,7 @@
 
 .text {
   margin: 0 0 20px 0;
+  @include fs(14px, 500, 1.14, 0.02em, var(--text-color));
 }
 //---?
 .options {
@@ -50,7 +52,7 @@
 }
 //---?
 .button {
-  border: 2px solid gray;
+  border: 2px solid var(--background-color-decoration);
   border-radius: 16px;
   padding: 12px 0;
   width: 125px;
@@ -58,6 +60,7 @@
   margin-right: 15px;
   border: 2px solid #f5f6fb;
   cursor: pointer;
+  @include fs(12px, 500, 1.17, 0.02em, var(--text-color));
   &:hover,
   &:focus {
     background: #ff751d;
