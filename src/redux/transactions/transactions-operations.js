@@ -3,7 +3,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import * as API from "../../shared/services/API";
 
 export const fetchAllTransactions = createAsyncThunk(
-  "transactions/fetchAllStransactions",
+  "transactions/fetchAllTransactions",
   async (_, { rejectWithValue }) => {
     try {
       const result = await API.fetchAllTransactions();

@@ -96,9 +96,10 @@ export const deleteTransaction = async ({ id }) => {
 };
 
 //used for reports
-export const fetchTransactionsPerPeriod = async (period) => {
-  const resp = await axios.get("/transaction/period-data?date=" + period);
+export const fetchTransactionsPerPeriod = async ( periodId ) => {
+  const resp = await instance.get(`/transactions/period/${periodId}`);
   return resp.data;
 };
+
 
 export default instance;
