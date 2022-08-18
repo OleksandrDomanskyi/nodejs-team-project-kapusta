@@ -4,20 +4,20 @@ import styles from "./current-period-item.module.scss";
 const CurrentPeriodItem = () => {
 
     return (
-        <div>
-            <p>Current period:</p>
+        <div className={styles.box}>
+            <p className={styles.text}>Current period:</p>
             <div className={styles.option}>
-                <button type="button">
-                    <svg width="4" height="10">
+                <button className={styles.button} type="button">
+                    <svg width="4px" height="10px">
                         <use href={`${iconsSprite}#icon-arrow-left`}></use>
                     </svg>
                 </button>
-                <p>
+                <p className={styles.date}>
                     <span>month</span>
-                    <span>year</span>
+                    <span className={styles.year}>year</span>
                 </p>
-                <button type="button">
-                    <svg width="4" height="10">
+                <button className={styles.button} type="button">
+                    <svg width="4px" height="10px">
                         <use href={`${iconsSprite}#icon-arrow-right`}></use>
                     </svg>
                 </button>

@@ -1,17 +1,19 @@
 import ReportNavigationBar from "./ReportNavigationBar/ReportNavigationBar";
-// import ReportsHeader from "../ReportsHeader";
-// import ReportsMenu from "../ReportsMenu/ReportsMenu";
+import TotalAmountItem from "./TotalAmountItem/TotalAmountItem";
+import ReportTransactionTypes from "./ReportTransactionTypes/ReportTransactionTypes";
+
+import styles from "./report.module.scss";
 
 
 const Report = () => {
 
     return (
-        <>
-            <ReportNavigationBar/>
-           {/* <ReportsMenu/>,
-           <ReportsHeader/>, */}
-        </>
+        <section className={styles.section}>
+            <ReportNavigationBar />
+            <TotalAmountItem />
+            <ReportTransactionTypes />
+        </section>
     );
-}
+};
 
 export default Report;

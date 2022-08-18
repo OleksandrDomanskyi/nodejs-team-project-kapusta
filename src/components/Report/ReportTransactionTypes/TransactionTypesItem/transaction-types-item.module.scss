@@ -2,15 +2,9 @@
 
 .box {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    // max-width: 136px;
-}
-
-.option {
-    display: flex;
-    margin-top: 5px;
+    margin-bottom: 20px;
 }
 
 .button {
@@ -20,18 +14,11 @@
     cursor: pointer;
 }
 
-.date {
+.text {
     @include fs(14px, 700, 16px, 0.02em, var(--title-color));
     text-align: center;
     text-transform: uppercase;
-    width: 136px;
-}
 
-.year {
-    margin-left: 10px;
-}
-
-.text {
-    @include fs(12px, 400, 14px, 0.04em, var(--secondary-text-color));
-    text-align: center;
+    margin-left: 16px;
+    margin-right: 16px;
 }

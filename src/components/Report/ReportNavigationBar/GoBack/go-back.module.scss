@@ -2,7 +2,7 @@
 
 .link {
     display: inline-flex;
-    align-items: flex-end;
+    align-items: center;
     text-decoration: none;
 }
 
@@ -13,5 +13,5 @@
 
 .text {
     margin-left: 16px;
-    @include fs(12px, 400, 14px, 0.04em, var(--text-color));
+    @include fs(12px, 400, 14px, 0.04em, var(--secondary-text-color));
 }

@@ -1,0 +1,51 @@
+@import "../../../sass/main.scss";
+
+.box {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    padding: 7px 10px;
+    border-radius: 20px;
+    box-shadow: 5px 10px 20px rgba(170, 178, 197, 0.4);
+    @include fs(14px, 700, 16px, 0, var(--text-color));
+    background-color: var(--background-color-main);
+}
+
+.expenses {
+    height: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding-right: 10px;
+    border-right: 1px solid #e0e5eb;
+
+    @include tablet {
+        height: 36px;
+        padding-right: 20px;
+    }
+}
+
+.income {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    padding-left: 10px;
+
+    @include tablet {
+        padding-left: 20px;
+    }
+}
+
+.text {
+    margin-right: 15px;
+}
+
+.expensesNumber {
+    color: var(--alternative-text-color);
+}
+
+.incomeNumber {
+    color: var(--income-text-color);
+}
