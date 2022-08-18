@@ -137,7 +137,7 @@ const transactionsSlice = createSlice({
     [fetchAllTransactions.fulfilled]: (store, { payload }) => ({
       ...store,
       loading: false,
-      items: payload,
+      items: payload.transactions,
     }),
     [fetchAllTransactions.rejected]: (store, { payload }) => ({
       ...store,

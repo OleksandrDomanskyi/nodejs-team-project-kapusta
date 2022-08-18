@@ -1,7 +1,5 @@
 import { useMediaQuery } from "react-responsive";
 import React, { useState } from "react";
-import { useSelector, shallowEqual } from "react-redux";
-import { transactions } from "../../redux/transactions/transactions-selectors";
 
 import BgWrapper from "../../components/BgWrapper";
 import Balance from "../../components/Balance";
@@ -20,11 +18,6 @@ import s from "./balance-page.module.scss";
 const BalancePage = () => {
   const [transactionType, setTransactionType] = useState("income");
   // const dispatch = useDispatch();
-  const getTransactions = useSelector(transactions, shallowEqual);
-
-  const filteredTransactions = getTransactions.filter(
-    (item) => item.type === transactionType
-  );
 
   const handleClick = (e) => {
     setTransactionType(e.target.dataset.name);
@@ -42,7 +35,7 @@ const BalancePage = () => {
           {isMobile && (
             <>
               <Balance type={transactionType} />
-              <ExpenseAndIncomeTable transactions={filteredTransactions} />
+              <ExpenseAndIncomeTable type={transactionType} />
               <ExpenseAndIncomeButtons
                 onClick={handleClick}
                 isActive={transactionType}
@@ -54,7 +47,7 @@ const BalancePage = () => {
               <Balance type={transactionType} />
               <div className={s.tableWrapper}>
                 <ExpenseAndIncomeForm type={transactionType} />
-                <ExpenseAndIncomeTable transactions={filteredTransactions} />
+                <ExpenseAndIncomeTable type={transactionType} />
                 <ExpenseAndIncomeButtons
                   onClick={handleClick}
                   isActive={transactionType}
@@ -75,7 +68,7 @@ const BalancePage = () => {
               <div className={s.tableWrapper}>
                 <ExpenseAndIncomeForm type={transactionType} />
                 <div className={s.tableAndSummaryWrapper}>
-                  <ExpenseAndIncomeTable transactions={filteredTransactions} />
+                  <ExpenseAndIncomeTable type={transactionType} />
                   <Summary />
                 </div>
                 <ExpenseAndIncomeButtons

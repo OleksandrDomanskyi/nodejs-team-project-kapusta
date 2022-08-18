@@ -1,10 +1,25 @@
+import React, { useEffect } from "react";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
+import { transactions } from "../../redux/transactions/transactions-selectors";
+import { fetchAllTransactions } from "../../redux/transactions/transactions-operations";
 import NumberFormat from "react-number-format";
 
 import iconsSprite from "../../images/icons.svg";
 
 import s from "./expenseAndIncomeTable.module.scss";
 
-const ExpenseAndIncomeTable = ({ transactions }) => {
+const ExpenseAndIncomeTable = ({ type }) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchAllTransactions());
+  }, [dispatch]);
+
+  const getTransactions = useSelector(transactions, shallowEqual);
+
+  const filteredTransactions = getTransactions.filter(
+    (item) => item.type === type
+  );
+
   return (
     <div className={s.tableWrapper}>
       <table className={s.table}>
@@ -18,9 +33,9 @@ const ExpenseAndIncomeTable = ({ transactions }) => {
           </tr>
         </thead>
         <tbody className={s.tbody}>
-          {transactions.length > 0 &&
-            transactions.map((el) => (
-              <tr key={el.id} className={s.line}>
+          {filteredTransactions.length > 0 &&
+            filteredTransactions.map((el) => (
+              <tr key={el._id} className={s.line}>
                 <td className={s.date}>{`${el.day}-${el.month}-${el.year}`}</td>
                 <td className={s.description}>
                   <span>{el.description}</span>
