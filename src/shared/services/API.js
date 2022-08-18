@@ -53,15 +53,6 @@ export const logout = async () => {
 
 // BALANCE
 
-export const getUserBalance = async () => {
-  try {
-    const { data } = await instance.get("/users/balance");
-    return data.balance;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
 export const setUserBalance = async (balance) => {
   try {
     const { data } = await instance.patch("/users/balance", {
