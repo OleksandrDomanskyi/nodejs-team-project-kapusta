@@ -53,6 +53,9 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
     document.getElementById("create-transaction-form").reset();
   };
 
+  const chooseOptions = () =>
+    type === "expenses" ? options.expenses : options.income;
+
   return (
     <form className={s.form} onSubmit={onSubmit} id="create-transaction-form">
       <div className={s.inputsWrapper}>
@@ -73,7 +76,7 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
         <label htmlFor="category" className={s.selectLabel}>
           <Select
             className={s.select}
-            options={options}
+            options={chooseOptions()}
             name="category"
             placeholder="Product category"
             styles={customStyles}

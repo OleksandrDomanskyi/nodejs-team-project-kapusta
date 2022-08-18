@@ -1,14 +1,22 @@
-export const options = [
-  { value: "Food", label: "Food" },
-  { value: "Drinks", label: "Drinks" },
-  { value: "Clothes", label: "Clothes" },
-  { value: "Health", label: "Health" },
-  { value: "Home", label: "Home" },
-  { value: "Payments", label: "Payments" },
-  { value: "Sport", label: "Sport" },
-  { value: "For kids", label: "For kids" },
-  { value: "For animals", label: "For animals" },
-  { value: "Vacation", label: "Vacation" },
-  { value: "Bank deposit", label: "Bank deposit" },
-  { value: "Other", label: "Other" },
-];
+export const options = {
+  expenses: [
+    { value: "Transport", label: "Transport" },
+    { value: "Products", label: "Products" },
+    { value: "Health", label: "Health" },
+    { value: "Alcohol", label: "Alcohol" },
+    { value: "Entertainment", label: "Entertainment" },
+    { value: "Housing", label: "Housing" },
+    { value: "Technique", label: "Technique" },
+    { value: "Communal, communication", label: "Communal, communication" },
+    { value: "Sports, hobbies", label: "Sports, hobbies" },
+    { value: "Education", label: "Education" },
+    { value: "Other", label: "Other" },
+  ],
+  income: [
+    {
+      value: "Salary",
+      label: "Salary",
+    },
+    { value: "Additional income", label: "Additional income" },
+  ],
+};
