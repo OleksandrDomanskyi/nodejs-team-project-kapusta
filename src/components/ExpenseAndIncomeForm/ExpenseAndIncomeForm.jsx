@@ -31,10 +31,10 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
     const { description, sum, category } = e.target.elements;
     const arrayOfValue = sum.value.split(" ");
     arrayOfValue.pop();
-    const normilizedValue = arrayOfValue.join("");
+    const normalizedValue = arrayOfValue.join("");
     const transaction = {
       type,
-      value: +normilizedValue,
+      value: +normalizedValue,
       category: category.value,
       description: description.value,
       date: startDate,
@@ -42,8 +42,8 @@ const ExpenseAndIncomeForm = ({ type, closeModal }) => {
     dispatch(createTransaction(transaction));
     let updatedBalance =
       type === "income"
-        ? +balance + +normilizedValue
-        : +balance - +normilizedValue;
+        ? +balance + +normalizedValue
+        : +balance - +normalizedValue;
     dispatch(createBalance(updatedBalance));
     e.target.reset();
     if (isMobile) closeModal();

@@ -1,14 +1,14 @@
 import NumberFormat from "react-number-format";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-// import { getIncomeTotal, getExpenseTotal } from "../../../redux/reports/reports-selectors";
+import { getIncomeTotal, getExpenseTotal } from "../../../redux/reports/reports-selectors";
 
 import styles from "./total-amount-item.module.scss";
 
 const TotalAmountItem = () => {
 
-    // const expenseTotal = useSelector(getExpenseTotal);
-    // const incomeTotal = useSelector(getIncomeTotal);
+    const expenseTotal = useSelector(getExpenseTotal);
+    const incomeTotal = useSelector(getIncomeTotal);
 
     return (
         <div className={styles.box}>
@@ -16,7 +16,7 @@ const TotalAmountItem = () => {
                 <span className={styles.text}>Expenses:</span>
                 <span className={styles.expensesNumber}>
                     <NumberFormat
-                        // value={expenseTotal}
+                        value={expenseTotal}
                         displayType={'text'}
                         thousandSeparator={' '}
                         suffix={' грн.'}
@@ -31,7 +31,7 @@ const TotalAmountItem = () => {
                 <span className={styles.text}>Income:</span>
                 <span className={styles.incomeNumber}>
                     <NumberFormat
-                        // value={incomeTotal}
+                        value={incomeTotal}
                         displayType={'text'}
                         thousandSeparator={' '}
                         suffix={' грн.'}
