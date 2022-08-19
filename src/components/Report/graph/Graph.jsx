@@ -2,7 +2,7 @@ import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Bar } from 'react-chartjs-2';
 import {  } from 'chart.js/auto';
-
+import s from "./graph.module.scss"
 // component should receive two arrays as Props
 
 const Graph = ({labels,values}) => {
@@ -70,7 +70,10 @@ const mobileData={
           display: false,
         },
       },
-      y: {        
+      y: {   grid: {
+        display: true,
+        borderColor: 'white'
+      },      
         ticks: {
           display: false,
         },
@@ -84,7 +87,7 @@ const mobileData={
   };
   
     return (
-        isDesktop ? <Bar data={data} options={options}/> : <Bar data={mobileData} options={mobileOptions}/> 
+        <div className={s.wrapper}>{isDesktop ? <Bar data={data} options={options}/> : <Bar data={mobileData} options={mobileOptions}/>}</div> 
     );
   
 };
