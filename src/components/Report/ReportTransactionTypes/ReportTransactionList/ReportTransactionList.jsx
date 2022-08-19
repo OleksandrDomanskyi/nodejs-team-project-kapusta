@@ -3,11 +3,15 @@ import options from "./listData";
 
 import styles from "./report-transaction-list.module.scss";
 
-const ReportTransactionList = () => {
-    const expenses = options.expenses;
+const ReportTransactionList = ({type}) => {
 
-    const elements = expenses.map((expense) => (
-        <TransactionListItem key={expense.id} {...expense} />
+    const expensesArray = structuredClone(options.expenses);
+    const incomeArray = structuredClone(options.income);
+
+    const transactionsType = type === "Expenses" ? expensesArray : incomeArray;
+
+    const elements = transactionsType.map((transactionType) => (
+        <TransactionListItem key={transactionType.id} {...transactionType} />
     ))
 
     return (

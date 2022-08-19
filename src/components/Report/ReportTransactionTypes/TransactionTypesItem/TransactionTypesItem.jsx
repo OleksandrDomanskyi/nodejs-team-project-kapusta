@@ -1,11 +1,7 @@
-import { useState } from "react";
-
 import iconsSprite from "../../../../images/icons.svg";
 import styles from "./transaction-types-item.module.scss";
 
-const TransactionTypesItem = () => {
-
-    const [type, setType] = useState("Expenses");
+const TransactionTypesItem = ({type, setType}) => {
 
     const handleClick = () => {
         type === "Expenses" ? setType("Income") : setType("Expenses")
