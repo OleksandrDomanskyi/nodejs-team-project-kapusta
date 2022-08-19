@@ -67,7 +67,7 @@ const authSlice = createSlice({
       ...initialState,
       error: payload,
     }),
-    //-----------
+    //----------
     //---Logout
     [logout.pending]: (store) => ({
       ...store,
