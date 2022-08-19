@@ -64,10 +64,8 @@ const authSlice = createSlice({
       userData: { balance: payload.balance, email: payload.email },
     }),
     [getCurrentUser.rejected]: (store, { payload }) => ({
-      ...store,
-      loading: false,
+      ...initialState,
       error: payload,
-      token: "",
     }),
     //----------
     //---Logout
