@@ -1,4 +1,4 @@
-import Report from "../../components/Report";
+import Report from '../../components/Report/Report';
 import BgWrapper from "../../components/BgWrapper";
 
 const ReportPage = () => {

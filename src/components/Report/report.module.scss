@@ -10,11 +10,19 @@
         width: 320px;
     }
     @include tablet {
+        background-image: url(../../images/cabbages/two-cabbages.svg) ;
+        background-repeat: no-repeat;
+        background-position: right 103px bottom -40px;
         padding-top: 42px;
         padding-bottom: 80px;
         width: 768px;
     }
     @include desktop {
         width: 1034px;
+        background-image: url(../../images/cabbages/a-lot-of-cabbage.svg);
+    
+        background-repeat: no-repeat;
+        background-position: left bottom -84px
+        
     }
 }
