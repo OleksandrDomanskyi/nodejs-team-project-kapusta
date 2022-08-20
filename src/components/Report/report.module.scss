@@ -1,6 +1,20 @@
+@import "../../sass/main.scss";
+
 .section {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 22px;
+    padding-bottom: 0px;
     margin: 0 auto;
-    width: 1034px;
+    width: 320px;
+
+    @include mobile {
+        width: 320px;
+    }
+    @include tablet {
+        padding-top: 42px;
+        padding-bottom: 80px;
+        width: 768px;
+    }
+    @include desktop {
+        width: 1034px;
+    }
 }

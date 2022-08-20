@@ -1,8 +1,11 @@
 @import "../../../sass/main.scss";
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
-    margin-bottom: 32px;
+
+    @include desktop{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin-bottom: 32px;
+    }
 };
