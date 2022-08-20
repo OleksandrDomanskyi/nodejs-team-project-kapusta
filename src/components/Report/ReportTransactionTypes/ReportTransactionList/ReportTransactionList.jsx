@@ -3,7 +3,7 @@ import options from "./listData";
 
 import styles from "./report-transaction-list.module.scss";
 
-const ReportTransactionList = ({type}) => {
+const ReportTransactionList = ({type, setCategoryForChart}) => {
 
     const expensesArray = structuredClone(options.expenses);
     const incomeArray = structuredClone(options.income);
@@ -11,7 +11,7 @@ const ReportTransactionList = ({type}) => {
     const transactionsType = type === "Expenses" ? expensesArray : incomeArray;
 
     const elements = transactionsType.map((transactionType) => (
-        <TransactionListItem key={transactionType.id} {...transactionType} />
+        <TransactionListItem key={transactionType.id} {...transactionType} setCategoryForChart={setCategoryForChart} />
     ))
 
     return (

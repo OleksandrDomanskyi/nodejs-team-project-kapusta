@@ -5,7 +5,7 @@ import { getReportsTotal } from "../../../../../redux/reports/reports-selectors"
 
 import styles from "./transaction-list-item.module.scss";
 
-const TransactionListItem = ({ id, icon, label }) => {
+const TransactionListItem = ({ id, icon, label,setCategoryForChart }) => {
 
     const transaction = useSelector(getReportsTotal);
 
@@ -15,10 +15,12 @@ const TransactionListItem = ({ id, icon, label }) => {
         categoryTotalMoney += element.value
     });
 
-
+    const handleClick=()=>{
+        setCategoryForChart(label)
+    }
 
     return (
-        <li key={id} className={styles.item}>
+        <li key={id} className={styles.item} onClick={handleClick}>
             <span className={styles.text}>
                 <NumberFormat
                     value={categoryTotalMoney}
