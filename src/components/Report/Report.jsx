@@ -3,7 +3,7 @@ import { useState } from "react";
 import ReportNavigationBar from "./ReportNavigationBar/ReportNavigationBar";
 import TotalAmountItem from "./TotalAmountItem/TotalAmountItem";
 import ReportTransactionTypes from "./ReportTransactionTypes/ReportTransactionTypes";
-import Graph from './Graph'
+import Graph from "./Chart";
 
 import styles from "./report.module.scss";
 

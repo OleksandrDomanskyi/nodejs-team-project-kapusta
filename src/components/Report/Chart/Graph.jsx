@@ -7,7 +7,6 @@ import { useSelector } from 'react-redux';
 import { getReportsTotal } from '../../../redux/reports/reports-selectors';
 
 import s from "./graph.module.scss"
-// component should receive two arrays as Props
 
 const Graph = ({category}) => {
   const transaction = useSelector(getReportsTotal);
