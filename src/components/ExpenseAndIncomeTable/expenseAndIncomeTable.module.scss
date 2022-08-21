@@ -97,11 +97,11 @@
   }
 
   & .description {
-    margin-right: 57px;
+    margin-right: 35px;
   }
 
   & .category {
-    margin-right: 110px;
+    margin-right: 80px;
     @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
   }
   @include desktop {
@@ -111,7 +111,7 @@
     }
 
     & .description {
-      margin-right: 117px;
+      margin-right: 80px;
       flex-basis: 190px;
     }
 
@@ -178,7 +178,7 @@
     align-items: flex-end;
   }
   @include tablet {
-    margin-right: 40px;
+    flex-basis: 100px; // margin-right: 40px;
     @include fs(12px, 400, 1.16, 0.04em, var(--text-color));
   }
   @include desktop {
@@ -197,12 +197,12 @@
   }
 
   @include tablet {
-    margin-right: 35px;
+    margin-right: 25px;
     flex-basis: 120px;
     text-align: end;
   }
   @include desktop {
-    margin-right: 45px;
+    // margin-right: 45px;
   }
 }
 
@@ -219,6 +219,9 @@
     justify-content: flex-end;
   }
 
+  @include tablet {
+    margin-right: 10px;
+  }
   &Wrap {
     display: flex;
     align-items: center;
