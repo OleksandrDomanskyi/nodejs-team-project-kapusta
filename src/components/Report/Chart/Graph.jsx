@@ -1,17 +1,21 @@
 import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Bar } from 'react-chartjs-2';
+import {Chart} from 'chart.js';
 import {  } from 'chart.js/auto';
+import 'chartjs-plugin-datalabels';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 import { useSelector } from 'react-redux';
 import { getReportsTotal } from '../../../redux/reports/reports-selectors';
 
 import s from "./graph.module.scss"
+Chart.register(ChartDataLabels);
 
 const Graph = ({category}) => {
   const transaction = useSelector(getReportsTotal);
   const targetTransactions = transaction.filter(tx => tx.category === category);
-
+  
   const transactionsByLabel = {};
   targetTransactions.forEach(tx => {
     const label = tx.description;
@@ -106,10 +110,25 @@ const mobileData={
       },
     },
     plugins: {
+      tooltip: {
+        callbacks: {
+            label: (item) =>
+                `${item.formattedValue} UAH`,
+        },
+    },
       legend: {
         display: false,
       },
+      datalabels: {
+        display: true,
+        anchor: "end",
+        align: "top",
+        formatter: function(value, context) {
+          return `${value} UAH`;
+        }
+     },
     },
+   
   };
   
     return (

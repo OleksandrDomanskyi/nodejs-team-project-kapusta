@@ -10,6 +10,7 @@
     "axios": "^0.27.2",
     "bson-objectid": "^2.0.3",
     "chart.js": "^3.9.1",
+    "chartjs-plugin-datalabels": "^2.1.0",
     "date-fns": "^2.29.1",
     "modern-normalize": "^1.1.0",
     "netlify-cli": "^10.15.0",
