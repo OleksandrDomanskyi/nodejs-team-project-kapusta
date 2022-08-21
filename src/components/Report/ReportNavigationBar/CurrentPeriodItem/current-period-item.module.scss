@@ -5,12 +5,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 34px;
+    margin-top: 22px;
+    @include tablet {
+        margin-top: 0px;
+    }
     // max-width: 136px;
 }
 
 .option {
     display: flex;
+    align-items: center;
     margin-top: 5px;
 }
 
@@ -25,7 +29,9 @@
     @include fs(14px, 700, 16px, 0.02em, var(--title-color));
     text-align: center;
     text-transform: uppercase;
-    width: 136px;
+    margin-left: 10px;
+    margin-right: 10px;
+    // width: 136px;
 }
 
 .year {

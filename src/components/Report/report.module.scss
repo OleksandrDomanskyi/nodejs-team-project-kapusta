@@ -5,8 +5,6 @@
     padding-bottom: 0px;
     margin: 0 auto;
     width: 320px;
-    padding-left: 20px;
-    padding-right: 20px;
 
     @include mobile {
         width: 320px;
@@ -24,6 +22,8 @@
     @include desktop {
         width: 1034px;
         background-image: url(../../images/cabbages/a-lot-of-cabbage.svg);
+        padding-left: 0;
+        padding-right: 0;
     
         background-repeat: no-repeat;
         background-position: left bottom -84px

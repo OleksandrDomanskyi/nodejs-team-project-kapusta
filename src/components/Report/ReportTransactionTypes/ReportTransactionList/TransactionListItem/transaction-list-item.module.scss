@@ -1,13 +1,31 @@
 @import "../../../../../sass/main.scss";
 
 .item {
-    width: 84px;
-    margin-bottom: 40px;
+    position: relative;
+    width: calc(100% / 3);
+    height: 122px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     text-align: center;
     cursor: pointer;
 
-    &:not(:last-child) {
-        margin-right: 20px;
+    &::after{
+        position: absolute;
+        bottom: -16%;
+        left: 0;
+        display: inline-block;
+        content: '';
+        width: 100%;
+        height: 1px;
+        background-color: #e0e5eb;
+        opacity: 1;
+        transform: scaleX(1);
+        @include tablet {
+            opacity: 0;
+        }
+    }
+    @include tablet {
+        width: calc(100% / 6);
     }
 }
 

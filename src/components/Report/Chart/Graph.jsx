@@ -96,7 +96,11 @@ const mobileData={
   };
   
     return (
-        <div className={s.wrapper}>{isDesktop ? <Bar data={data} options={options}/> : <Bar data={mobileData} options={mobileOptions}/>}</div> 
+      <div className={s.wrapper}>
+        <div className={s.box}>
+          {isDesktop ? <Bar data={data} options={options} /> : <Bar data={mobileData} options={mobileOptions} />}
+        </div>
+      </div> 
     );
   
 };

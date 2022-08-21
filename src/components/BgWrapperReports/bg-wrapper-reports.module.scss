@@ -1,0 +1,13 @@
+@import "../../sass/main.scss";
+
+.background {
+  position: absolute;
+  height: 276px;
+  width: 100%;
+  background-color: #f2f5fc;
+  border-bottom-left-radius: 110px;
+  z-index: -1;
+  @include tablet {
+    height: 526px;
+  }
+}

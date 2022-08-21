@@ -6,9 +6,9 @@ import { createBalance } from "../../../../redux/auth/auth-operations";
 import s from "./report-balance-form.module.scss";
 
 import NumberFormat from "react-number-format";
-import { useMediaQuery } from "react-responsive";
+// import { useMediaQuery } from "react-responsive";
 
-import Calendar from "../../../Calendar";
+// import Calendar from "../../../Calendar";
 
 const ReportBalanceForm = ({ openModal }) => {
   const [balance, setBalance] = useState("");
@@ -18,9 +18,9 @@ const ReportBalanceForm = ({ openModal }) => {
     setBalance(getCurrentBalance);
   }, [getCurrentBalance]);
 
-  const [startDate, setStartDate] = useState(new Date());
+  // const [startDate, setStartDate] = useState(new Date());
 
-  const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
+  // const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
 
   const handleChange = (e) => {
     setBalance(e.target.value);
@@ -31,7 +31,7 @@ const ReportBalanceForm = ({ openModal }) => {
     dispatch(createBalance(parseFloat(balance.split(" ").join(""))));
   };
 
-  const handleDateChange = (date) => setStartDate(date);
+  // const handleDateChange = (date) => setStartDate(date);
 
   return (
     <div className={s.formWrapper}>
@@ -57,14 +57,14 @@ const ReportBalanceForm = ({ openModal }) => {
           Confirm
         </button>
       </form>
-      {isMobile && (
+      {/* {isMobile && (
         <div className={s.mobileCalend}>
           <button className={s.addBtn} onClick={openModal}>
             Add transaction
           </button>
           <Calendar startDate={startDate} onHandleChange={handleDateChange} />
         </div>
-      )}
+      )} */}
     </div>
   );
 };

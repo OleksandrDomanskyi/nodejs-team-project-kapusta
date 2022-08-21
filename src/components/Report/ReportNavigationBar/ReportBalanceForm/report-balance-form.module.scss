@@ -2,16 +2,22 @@
 
 .formWrapper {
   display: flex;
+  margin-top: 32px;
   flex-direction: column;
   text-align: center;
   @include tablet {
     align-items: baseline;
     flex-direction: row;
+    margin-right: 102px;
+    margin-top: 0px;
+  }
+  @include desktop {
+    margin-right: 214px;
   }
 }
 
 .balance {
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   @include fs(12px, 500, 1.16, 0.04em, var(--secondary-text-color));
   @include tablet {
     margin-bottom: 0;
@@ -20,7 +26,7 @@
 }
 
 .form {
-  margin-bottom: 50px;
+  margin-bottom: 32px;
   @include tablet {
     margin-bottom: 0;
   }
@@ -33,17 +39,18 @@
   width: 50%;
   background-color: transparent;
   border: 2px solid var(--background-color-main);
-  border-right-color: transparent;
   border-top-left-radius: 22px;
   border-bottom-left-radius: 22px;
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
   outline: none;
   text-align: right;
 
   @include tablet {
-    margin-right: 15px;
     width: 125px;
-    border-right-color: var(--background-color-main);
-    border-radius: 12px;
+  }
+  @include desktop {
+    margin-right: 16px;
   }
 
   &::placeholder {
@@ -52,18 +59,23 @@
 }
 
 .btn {
-  padding: 13px 18px;
-  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
-  text-transform: uppercase;
-  background-color: transparent;
-  width: 50%;
-  border: 2px solid var(--background-color-main);
-  border-top-right-radius: 22px;
-  border-bottom-right-radius: 22px;
+  display: none;
 
-  @include tablet {
+  @include desktop {
+    display: inline-block;
     width: 125px;
     border-radius: 12px;
+
+    padding: 13px 18px;
+    @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+    text-transform: uppercase;
+    background-color: transparent;
+    // width: 50%;
+    border: 2px solid var(--background-color-main);
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
   }
 
   &:hover {
@@ -73,20 +85,20 @@
   }
 }
 
-.mobileCalend {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-}
+// .mobileCalend {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   flex-direction: column;
+// }
 
-.addBtn {
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 12px;
-  @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
-  text-transform: uppercase;
-  background-color: var(--accent-color);
-  color: var(--background-color-main);
-  border: none;
-}
+// .addBtn {
+//   padding: 15px;
+//   margin-bottom: 20px;
+//   border-radius: 12px;
+//   @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+//   text-transform: uppercase;
+//   background-color: var(--accent-color);
+//   color: var(--background-color-main);
+//   border: none;
+// }

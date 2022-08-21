@@ -1,12 +1,12 @@
 import Report from '../../components/Report/Report';
-import BgWrapper from "../../components/BgWrapper";
+import BgWrapperReports from '../../components/BgWrapperReports/BgWrapperReports';
 
 const ReportPage = () => {
 
     return (
-        <BgWrapper>
+        <BgWrapperReports>
             <Report />
-        </BgWrapper>
+        </BgWrapperReports>
     );
 }
 

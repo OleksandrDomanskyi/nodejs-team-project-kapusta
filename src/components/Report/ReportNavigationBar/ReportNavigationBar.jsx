@@ -9,8 +9,10 @@ const ReportNavigationBar = () => {
     return (
         <div className={styles.container}>
             <GoBack />
-            <CurrentPeriodItem />
-            <ReportBalanceForm />
+            <div className={styles.box}>
+                <CurrentPeriodItem />
+                <ReportBalanceForm />
+            </div>
         </div>
     );
 };
