@@ -58,13 +58,17 @@ const ExpenseAndIncomeTable = ({ type }) => {
                 <td className={s.category}>
                   <span>{el.category}</span>
                 </td>
-                <td className={s.sum}>
+                <td
+                  className={`${
+                    type === "expenses" ? s.sumExpense : s.sumIncome
+                  }`}
+                >
                   <NumberFormat
                     value={el.value}
                     displayType={"text"}
                     thousandSeparator={" "}
                     suffix={" грн."}
-                    // prefix={"-"}
+                    prefix={`${type === "expenses" ? "-  " : ""}`}
                     type="text"
                     decimalSeparator="."
                     decimalScale={2}

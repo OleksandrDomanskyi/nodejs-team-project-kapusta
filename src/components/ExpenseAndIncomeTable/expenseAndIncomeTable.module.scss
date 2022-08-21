@@ -186,9 +186,9 @@
   }
 }
 
-.sum {
+.sumExpense {
   flex-basis: 180px;
-  @include fs(12px, 700, 1.16, 0.04em, var(--text-color));
+  @include fs(12px, 700, 1.16, 0.04em, var(--alternative-text-color));
 
   @include mobile {
     display: flex;
@@ -206,6 +206,11 @@
   }
 }
 
+.sumIncome {
+  composes: sumExpense;
+  color: var(--income-text-color);
+}
+
 .delete {
   flex-basis: 30px;
   @include mobile {
@@ -221,8 +226,9 @@
     width: 35px;
     height: 35px;
   }
+
   &:hover > .deleteWrap {
     border-radius: 50%;
-    background-color: red;
+    background-color: var(--background-color-decoration);
   }
 }

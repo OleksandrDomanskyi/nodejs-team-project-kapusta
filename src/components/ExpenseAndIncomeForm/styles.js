@@ -1,8 +1,13 @@
 export const customStyles = {
   option: (provided, state) => ({
     ...provided,
-    backgroundColor: state.isSelected ? "#C7CCDC" : "#F5F6FB",
+    backgroundColor: state.isSelected ? "#F5F6FB" : "#ffffff",
+    color: state.isSelected ? "#52555F" : "#C7CCDC",
     borderBottom: "1px solid #eee",
+    // color: "#C7CCDC",
+    "&:hover": {
+      backgroundColor: "#F5F6FB",
+    },
   }),
   control: () => ({
     display: "flex",
@@ -26,7 +31,6 @@ export const customStyles = {
   }),
   singleValue: () => ({
     color: "#52555F",
-    fontWeight: 700,
     fontSize: 12,
   }),
 };
