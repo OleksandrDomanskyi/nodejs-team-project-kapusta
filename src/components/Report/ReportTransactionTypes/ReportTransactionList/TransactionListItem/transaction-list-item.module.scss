@@ -87,4 +87,5 @@
     @include fs(12px, 400, 14px, 0.02em, var(--text-color));
     text-transform: uppercase;
     margin: 0;
+    width: 100px;
 }

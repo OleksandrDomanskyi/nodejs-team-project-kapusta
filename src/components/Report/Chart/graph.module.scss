@@ -5,6 +5,7 @@
     padding-right: 20px;
 
     @include tablet{
+        border: 1px solid #E0E5EB;
         margin-left: auto;
         margin-right: auto;
         margin-top: 32px;
@@ -27,21 +28,25 @@
 .box {
     position: relative;
     border-top: 1px solid #E0E5EB;
-    
-    &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: inline-block;
-        content: '';
-        width: 100%;
-        height: 1px;
-        background-color: #e0e5eb;
-        opacity: 1;
-        transform: scaleX(1);
 
-        @include tablet {
-            opacity: 0;
-        }
+    @include tablet {
+        border-top: 0px solid #E0E5EB;
     }
+    
+    // &::before {
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     display: inline-block;
+    //     content: '';
+    //     width: 100%;
+    //     height: 1px;
+    //     background-color: #e0e5eb;
+    //     opacity: 1;
+    //     transform: scaleX(1);
+
+    //     @include tablet {
+    //         opacity: 0;
+    //     }
+    // }
 }
