@@ -171,6 +171,10 @@
   box-shadow: 1px 2px 5px rgba(170, 178, 197, 0.4);
   @include tablet {
     width: 125px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
   @include desktop {
     margin-right: 16px;
