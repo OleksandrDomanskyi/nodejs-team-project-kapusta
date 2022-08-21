@@ -7,7 +7,7 @@ import { transactions } from "../../redux/transactions/transactions-selectors";
 //   fetchAllTransactions,
 //   deleteTransaction,
 // } from "../../redux/transactions/transactions-operations";
-import { fetchAllTransactions} from "../../redux/transactions/transactions-operations";
+import { fetchAllTransactions } from "../../redux/transactions/transactions-operations";
 import NumberFormat from "react-number-format";
 import DeleteButton from "../DeleteButton";
 
@@ -58,13 +58,17 @@ const ExpenseAndIncomeTable = ({ type }) => {
                 <td className={s.category}>
                   <span>{el.category}</span>
                 </td>
-                <td className={s.sum}>
+                <td
+                  className={`${
+                    type === "expenses" ? s.sumExpense : s.sumIncome
+                  }`}
+                >
                   <NumberFormat
                     value={el.value}
                     displayType={"text"}
                     thousandSeparator={" "}
                     suffix={" грн."}
-                    // prefix={"-"}
+                    prefix={`${type === "expenses" ? "-  " : ""}`}
                     type="text"
                     decimalSeparator="."
                     decimalScale={2}
@@ -72,13 +76,12 @@ const ExpenseAndIncomeTable = ({ type }) => {
                   />
                 </td>
                 <td className={s.delete}>
-                    <DeleteButton id={el._id } value={el.value} type/>
+                  <DeleteButton id={el._id} value={el.value} type />
                 </td>
               </tr>
             ))}
         </tbody>
       </table>
-      {/* {children} */}
     </div>
   );
 };

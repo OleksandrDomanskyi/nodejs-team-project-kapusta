@@ -89,8 +89,9 @@
     @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
   }
 
-  & .date {
-    margin-left: 0;
+  & > .date {
+    margin-left: -15px;
+
     margin-right: 20px;
     @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
   }
@@ -105,7 +106,8 @@
   }
   @include desktop {
     & .date {
-      margin-left: 19px;
+      margin-left: 0;
+      margin-right: 12px;
     }
 
     & .description {
@@ -114,14 +116,14 @@
     }
 
     & .category {
-      margin-right: 110px;
+      margin-right: 135px;
     }
   }
 }
 
 .date {
   margin-right: 30px;
-  flex-basis: 50px;
+  flex-basis: 80px;
   @include fs(8px, null, 1.12, 0.04em, var(--text-color));
 
   @include mobile {
@@ -155,7 +157,7 @@
     @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
   }
   @include desktop {
-    flex-basis: 270px;
+    flex-basis: 250px;
   }
 
   & span {
@@ -184,10 +186,9 @@
   }
 }
 
-.sum {
-  margin-right: 10px;
-  flex-basis: 200px;
-  @include fs(12px, 700, 1.16, 0.04em, var(--text-color));
+.sumExpense {
+  flex-basis: 180px;
+  @include fs(12px, 700, 1.16, 0.04em, var(--alternative-text-color));
 
   @include mobile {
     display: flex;
@@ -205,6 +206,11 @@
   }
 }
 
+.sumIncome {
+  composes: sumExpense;
+  color: var(--income-text-color);
+}
+
 .delete {
   flex-basis: 30px;
   @include mobile {
@@ -220,8 +226,9 @@
     width: 35px;
     height: 35px;
   }
+
   &:hover > .deleteWrap {
     border-radius: 50%;
-    background-color: red;
+    background-color: var(--background-color-decoration);
   }
 }
