@@ -14,12 +14,14 @@ const Report = () => {
 const [categoryForChart, setCategoryForChart] = useState("");
 
     return (
-        <section className={styles.section}>
+        <div className={styles.box}>
+            <section className={styles.section}>
             <ReportNavigationBar />
             <TotalAmountItem />
             <ReportTransactionTypes setCategoryForChart={setCategoryForChart} />
             {categoryForChart && <Graph category={categoryForChart}/>}
         </section>
+        </div>
     );
 };
 
