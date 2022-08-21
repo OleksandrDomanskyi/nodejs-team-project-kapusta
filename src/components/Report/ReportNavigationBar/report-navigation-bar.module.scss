@@ -1,8 +1,24 @@
 @import "../../../sass/main.scss";
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
-    margin-bottom: 32px;
+
+    padding: 0 20px;
+
+    @include tablet{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 32px;
+        padding: 0;
+    }
+};
+
+.box {
+    display: block;
+
+    @include tablet{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+    }
 };

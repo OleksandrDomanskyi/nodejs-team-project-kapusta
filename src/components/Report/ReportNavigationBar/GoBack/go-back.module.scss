@@ -7,11 +7,26 @@
 }
 
 .icon {
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 12px;
+
+    fill: var(--icons-color);
+    
+    transition-property: fill;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+    &:hover,
+    &:focus {
+        fill: var(--accent-color);
+    }
 }
 
 .text {
-    margin-left: 16px;
-    @include fs(12px, 400, 14px, 0.04em, var(--secondary-text-color));
+    display: none;
+    @include tablet {
+        display: inline-block;
+        margin-left: 16px;
+        @include fs(12px, 400, 14px, 0.04em, var(--secondary-text-color));
+    }
 }

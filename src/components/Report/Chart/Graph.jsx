@@ -2,11 +2,20 @@ import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { Bar } from 'react-chartjs-2';
 import {  } from 'chart.js/auto';
-import s from "./graph.module.scss"
-// component should receive two arrays as Props
 
-const Graph = ({labels,values}) => {
-        const isDesktop = useMediaQuery({
+import { useSelector } from 'react-redux';
+import { getReportsTotal } from '../../../redux/reports/reports-selectors';
+
+import s from "./graph.module.scss"
+
+const Graph = ({category}) => {
+  const transaction = useSelector(getReportsTotal);
+
+  const filteredTransactions=transaction.filter((e)=>e.category===category).sort((a,b)=>a-b);
+  const filteredTransactions2=[...filteredTransactions]
+  const labels=filteredTransactions.map((e)=>e.description)
+  const values=filteredTransactions2.map((e)=>e.value)
+  const isDesktop = useMediaQuery({
           query: '(min-width: 768px)'
         })
   const data = {
@@ -87,7 +96,11 @@ const mobileData={
   };
   
     return (
-        <div className={s.wrapper}>{isDesktop ? <Bar data={data} options={options}/> : <Bar data={mobileData} options={mobileOptions}/>}</div> 
+      <div className={s.wrapper}>
+        <div className={s.box}>
+          {isDesktop ? <Bar data={data} options={options} /> : <Bar data={mobileData} options={mobileOptions} />}
+        </div>
+      </div> 
     );
   
 };

@@ -1,0 +1,104 @@
+@import "../../../../sass/main.scss";
+
+.formWrapper {
+  display: flex;
+  margin-top: 32px;
+  flex-direction: column;
+  text-align: center;
+  @include tablet {
+    align-items: baseline;
+    flex-direction: row;
+    margin-right: 102px;
+    margin-top: 0px;
+  }
+  @include desktop {
+    margin-right: 214px;
+  }
+}
+
+.balance {
+  margin-bottom: 8px;
+  @include fs(12px, 500, 1.16, 0.04em, var(--secondary-text-color));
+  @include tablet {
+    margin-bottom: 0;
+    margin-right: 20px;
+  }
+}
+
+.form {
+  margin-bottom: 32px;
+  @include tablet {
+    margin-bottom: 0;
+  }
+}
+
+.input {
+  padding: 13px 16px;
+  @include fs(12px, 700, 1.16, 0.02em, var(--title-color));
+  text-transform: uppercase;
+  width: 50%;
+  background-color: transparent;
+  border: 2px solid var(--background-color-main);
+  border-top-left-radius: 22px;
+  border-bottom-left-radius: 22px;
+  border-top-right-radius: 22px;
+  border-bottom-right-radius: 22px;
+  outline: none;
+  text-align: right;
+
+  @include tablet {
+    width: 125px;
+  }
+  @include desktop {
+    margin-right: 16px;
+  }
+
+  &::placeholder {
+    color: var(--title-color);
+  }
+}
+
+.btn {
+  display: none;
+
+  @include desktop {
+    display: inline-block;
+    width: 125px;
+    border-radius: 12px;
+
+    padding: 13px 18px;
+    @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+    text-transform: uppercase;
+    background-color: transparent;
+    // width: 50%;
+    border: 2px solid var(--background-color-main);
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
+  }
+
+  &:hover {
+    background-color: var(--accent-color);
+    color: var(--background-color-main);
+    border: 2px solid var(--accent-color);
+  }
+}
+
+// .mobileCalend {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   flex-direction: column;
+// }
+
+// .addBtn {
+//   padding: 15px;
+//   margin-bottom: 20px;
+//   border-radius: 12px;
+//   @include fs(12px, null, 1.16, 0.04em, var(--secondary-text-color));
+//   text-transform: uppercase;
+//   background-color: var(--accent-color);
+//   color: var(--background-color-main);
+//   border: none;
+// }

@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 
 import PublicRoute from "./shared/components/PublicRoute";
 import PrivateRoute from "./shared/components/PrivateRoute";
+import Loader from "./shared/components/Loader";
 
 const BalancePage = lazy(() => import("./pages/BalancePage/BalancePage"));
 const AuthPage = lazy(() => import("./pages/AuthPage/AuthPage"));
@@ -10,7 +11,7 @@ const ReportPage = lazy(() => import("./pages/ReportPage/ReportPage"));
 
 const MyRoutes = () => {
   return (
-    <Suspense>
+    <Suspense fallback={<Loader isEnabled={true} />}>
       <Routes>
         <Route element={<PublicRoute />}>
           <Route path={"/auth"} element={<AuthPage />} />

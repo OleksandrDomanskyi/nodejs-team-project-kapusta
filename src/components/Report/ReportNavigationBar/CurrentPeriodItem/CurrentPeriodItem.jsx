@@ -46,7 +46,7 @@ const CurrentPeriodItem = () => {
                     type="button"
                     onClick={handleDecrementMonth}
                 >
-                    <svg width="4px" height="10px">
+                    <svg width="10" height="10">
                         <use href={`${iconsSprite}#icon-arrow-left`}></use>
                     </svg>
                 </button>
@@ -59,7 +59,7 @@ const CurrentPeriodItem = () => {
                     type="button"
                     onClick={handleIncrementMonth}
                 >
-                    <svg width="4px" height="10px">
+                    <svg width="10" height="10">
                         <use href={`${iconsSprite}#icon-arrow-right`}></use>
                     </svg>
                 </button>

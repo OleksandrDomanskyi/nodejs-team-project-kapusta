@@ -14,19 +14,19 @@ const TransactionTypesItem = ({type, setType}) => {
                 type="button"
                 onClick={handleClick}
             >
-                <svg width="4px" height="10px">
+                <svg width="10" height="10">
                     <use href={`${iconsSprite}#icon-arrow-left`}></use>
                 </svg>
             </button>
             <div className={styles.text}>
-                <p>{type}</p>
+                {type}
             </div>
             <button
                 className={styles.button}
                 type="button"
                 onClick={handleClick}
             >
-                <svg width="4px" height="10px">
+                <svg width="10" height="10">
                     <use href={`${iconsSprite}#icon-arrow-right`}></use>
                 </svg>
             </button>
