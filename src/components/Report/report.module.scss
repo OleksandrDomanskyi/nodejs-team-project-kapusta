@@ -10,9 +10,7 @@
         width: 320px;
     }
     @include tablet {
-        background-image: url(../../images/cabbages/two-cabbages.svg) ;
-        background-repeat: no-repeat;
-        background-position: right 103px bottom -40px;
+       
         padding-top: 42px;
         padding-bottom: 80px;
         padding-left: 32px;
@@ -21,12 +19,23 @@
     }
     @include desktop {
         width: 1034px;
-        background-image: url(../../images/cabbages/a-lot-of-cabbage.svg);
+        
         padding-left: 0;
         padding-right: 0;
     
-        background-repeat: no-repeat;
-        background-position: left bottom -84px
         
     }
+}
+.box{
+    @include tablet{
+        background-image: url(../../images/cabbages/two-cabbages.svg) ;
+        background-repeat: no-repeat;
+        background-position: right 103px bottom -40px;
+    }
+   @include desktop{
+    background-image: url(../../images/cabbages/a-lot-of-cabbage.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom -83px
+   }
+    
 }
