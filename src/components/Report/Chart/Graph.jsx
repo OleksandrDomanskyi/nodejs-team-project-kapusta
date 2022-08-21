@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux';
 import { getReportsTotal } from '../../../redux/reports/reports-selectors';
 
 import s from "./graph.module.scss"
-import { element } from 'prop-types';
 Chart.register(ChartDataLabels);
 
 const Graph = ({category}) => {
