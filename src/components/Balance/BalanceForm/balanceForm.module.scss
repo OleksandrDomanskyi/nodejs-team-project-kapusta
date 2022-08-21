@@ -41,7 +41,8 @@
 
   @include tablet {
     margin-right: 15px;
-    width: 125px;
+    text-align: center;
+    width: 175px;
     border-right-color: var(--background-color-main);
     border-radius: 12px;
   }
