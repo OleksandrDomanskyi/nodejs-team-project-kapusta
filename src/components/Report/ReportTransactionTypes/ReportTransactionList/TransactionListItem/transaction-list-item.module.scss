@@ -45,7 +45,6 @@
         z-index: 2;
         width: 100%;
         height: 100%;
-        fill: currentColor;
     }
 
     &::before {
@@ -70,6 +69,46 @@
     }
 }
 
+.hidden {
+    display: none;
+}
+
+.boxActive {
+    
+    position: relative;
+    width: 56px;
+    height: 56px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+
+    svg {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+    }
+
+    &::before {
+    content: '';
+    position: absolute;
+    width: 59px;
+    height: 46px;
+    left: 0;
+    bottom: 0;
+    background: var(--background-icons-color);
+    border-radius: 20px;
+    z-index: 1;
+
+    transition-property: background;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
 .image {
     fill: var(--icons-color);
 
@@ -81,6 +120,10 @@
     &:focus {
         fill: var(--accent-color);
     }
+}
+
+.imageActive {
+    fill: var(--accent-color);
 }
 
 .text {

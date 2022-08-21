@@ -5,8 +5,8 @@ import { getReportsTotal } from "../../../../../redux/reports/reports-selectors"
 
 import styles from "./transaction-list-item.module.scss";
 
-const TransactionListItem = ({ id, icon, label,setCategoryForChart }) => {
-
+const TransactionListItem = ({ id, icon, label,setCategoryForChart, active, categoryClick }) => {
+    
     const transaction = useSelector(getReportsTotal);
 
     const categoryMoney = transaction.filter(item => item.category === label);
@@ -20,7 +20,7 @@ const TransactionListItem = ({ id, icon, label,setCategoryForChart }) => {
     }
 
     return (
-        <li key={id} className={styles.item} onClick={handleClick}>
+        <li key={id} className={categoryTotalMoney === 0 ? styles.hidden : styles.item} onClick={handleClick}>
             <span className={styles.text}>
                 <NumberFormat
                     value={categoryTotalMoney}
@@ -31,8 +31,8 @@ const TransactionListItem = ({ id, icon, label,setCategoryForChart }) => {
                     fixedDecimalScale={true}
                 />
             </span>
-            <div className={styles.box}>
-                <svg className={styles.image} width="56px" height="56px">
+            <div className={active === id ? styles.boxActive : styles.box}>
+                <svg className={active === id ? styles.imageActive : styles.image} id={id} onClick={categoryClick} width="56px" height="56px">
                     <use href={icon}></use>
                 </svg>
             </div>
