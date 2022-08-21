@@ -10,11 +10,28 @@ import s from "./graph.module.scss"
 
 const Graph = ({category}) => {
   const transaction = useSelector(getReportsTotal);
+  const targetTransactions = transaction.filter(tx => tx.category === category);
 
-  const filteredTransactions=transaction.filter((e)=>e.category===category).sort((a,b)=>a-b);
-  const filteredTransactions2=[...filteredTransactions]
-  const labels=filteredTransactions.map((e)=>e.description)
-  const values=filteredTransactions2.map((e)=>e.value)
+  const transactionsByLabel = {};
+  targetTransactions.forEach(tx => {
+    const label = tx.description;
+    if (!transactionsByLabel[label]) {
+      transactionsByLabel[label] = {
+        value: 0,
+        items: [],
+      };
+    } 
+    transactionsByLabel[label].value += tx.value;
+    transactionsByLabel[label].items.push(tx);
+  });
+
+  const categoriesSortedByValue = Object.keys(transactionsByLabel).sort((a, b) => {
+    return transactionsByLabel[b].value - transactionsByLabel[a].value;
+  });
+
+  const labels = categoriesSortedByValue;
+  const values = categoriesSortedByValue.map(label => transactionsByLabel[label].value);
+
   const isDesktop = useMediaQuery({
           query: '(min-width: 768px)'
         })
