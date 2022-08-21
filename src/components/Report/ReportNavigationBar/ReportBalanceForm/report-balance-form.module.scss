@@ -44,10 +44,10 @@
   border-top-right-radius: 22px;
   border-bottom-right-radius: 22px;
   outline: none;
-  text-align: right;
+  text-align: center;
 
   @include tablet {
-    width: 125px;
+    width: 175px;
   }
   @include desktop {
     margin-right: 16px;
