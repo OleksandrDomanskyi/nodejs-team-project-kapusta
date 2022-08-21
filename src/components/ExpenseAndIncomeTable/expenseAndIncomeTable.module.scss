@@ -116,7 +116,7 @@
     }
 
     & .category {
-      margin-right: 135px;
+      margin-right: 150px;
     }
   }
 }
@@ -219,7 +219,7 @@
     justify-content: flex-end;
   }
 
-  @include tablet {
+  @include desktop {
     margin-right: 10px;
   }
   &Wrap {
