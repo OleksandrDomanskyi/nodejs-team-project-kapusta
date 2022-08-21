@@ -1,15 +1,15 @@
 import DatePicker from "react-datepicker";
 
-import s from "./calendar.module.scss";
 import "react-datepicker/dist/react-datepicker.css";
+import "./calendar.scss";
 
 import iconsSprite from "../../images/icons.svg";
 
 const Calendar = ({ startDate, onHandleChange }) => {
   return (
-    <div className={s.calendarWrapper}>
+    <div className="calendarWrapper">
       <svg
-        className={s.iconCalend}
+        className="iconCalend"
         aria-label="calendar"
         width="20px"
         height="20px"
@@ -19,7 +19,7 @@ const Calendar = ({ startDate, onHandleChange }) => {
       <div>
         <DatePicker
           dateFormat="dd.MM.yyyy"
-          className={s.calendar}
+          className="calendar"
           selected={startDate}
           onChange={onHandleChange}
           required
