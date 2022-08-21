@@ -62,6 +62,9 @@ const mobileData={
   };
 
   const mobileOptions = {
+    layout: {
+      padding: 20
+  },
     indexAxis: 'y',
     aspectRatio: 1,
     scales: {
@@ -87,13 +90,32 @@ const mobileData={
       },
     },
     plugins: {
+      tooltip: {
+        callbacks: {
+            label: (item) =>
+                `${item.formattedValue} UAH`,
+        },
+    },
       legend: {
         display: false,
       },
+      datalabels: {
+        display: true,
+        anchor: "end",
+        // align:18,
+        // offset:-54,
+        align:'top',
+        formatter: function(value, context) {
+          return `${value} UAH`;
+        }
+     },
     },
   };
 
   const options = {
+    layout: {
+      padding: 22
+  },
     scales: {
       x: {
         grid: {
@@ -132,11 +154,11 @@ const mobileData={
   };
   
     return (
-      <div className={s.wrapper}>
-        <div className={s.box}>
-          {isDesktop ? <Bar data={data} options={options} /> : <Bar data={mobileData} options={mobileOptions} />}
-        </div>
-      </div> 
+     labels.length!==0 &&  <div className={s.wrapper}>
+     <div className={s.box}>
+       {isDesktop ? <Bar data={data} options={options} /> : <Bar data={mobileData} options={mobileOptions} />}
+     </div>
+   </div> 
     );
   
 };
