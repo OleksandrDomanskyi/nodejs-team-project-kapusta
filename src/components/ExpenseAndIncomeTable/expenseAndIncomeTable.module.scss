@@ -230,5 +230,6 @@
   &:hover > .deleteWrap {
     border-radius: 50%;
     background-color: var(--background-color-decoration);
+    transform: scale(1.2);
   }
 }
