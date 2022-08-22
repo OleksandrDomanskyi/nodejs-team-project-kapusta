@@ -2,7 +2,6 @@ import axios from "axios";
 
 const instance = axios.create({
   baseURL: "https://kapusta-net-app.herokuapp.com/api/",
-  // baseURL: "http://localhost:3001/api",
 });
 
 // USER

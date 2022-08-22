@@ -28,7 +28,7 @@ const DeleteButton = ({id, value, type}) => {
     <>
       {showModal && (
         <Modal
-          text="Are tou sure?"
+          text="Are you sure?"
           close={() => {
             setShowModal(false);
           }}
