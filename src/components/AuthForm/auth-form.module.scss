@@ -58,6 +58,12 @@
   @include tablet {
     width: 122px;
   }
+  &:focus,
+  &:hover{
+    background-color: #F5F6FB;
+    color: var(--accent-color);
+  }
+  transition: background-color, color, .25s ;
 }
 .reg {
   border-radius: 16px;
@@ -76,4 +82,10 @@
   @include desktop {
     width: 122px;
   }
+  &:focus,
+  &:hover{
+    background-color: var(--accent-color);
+    color: white;
+  }
+  transition: background-color, color, .25s ;
 }
